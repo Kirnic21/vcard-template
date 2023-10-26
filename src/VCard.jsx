@@ -1,4 +1,5 @@
 import { useState } from "react"
+import ReactFlipCard from 'reactjs-flip-card'
 import Frente from "./Frente"
 import Verso from "./Verso"
 const VCard = ()=>{
@@ -7,12 +8,26 @@ const VCard = ()=>{
     const trocar = ()=>{
         setVirado(!virado)
     }
+    const styles = {
+        card: {
+           width: '100%',
+           backgroundColor:'blue'
+        },
+    }
+    
     return(
         //se virado e falso, renderizar frente 
-        <div onClick={trocar}>
-        
-        {!virado && <Frente ></Frente>}
-        {virado && <Verso></Verso>}
+        <div className="pagina">
+        <ReactFlipCard
+        flipTrigger={'onClick'}
+       
+        frontStyle={styles.card}
+        backStyle={styles.card}
+        frontComponent={<Frente></Frente>}
+        backComponent={<Verso></Verso>}
+        >
+
+        </ReactFlipCard>
         </div>
     )
 }
