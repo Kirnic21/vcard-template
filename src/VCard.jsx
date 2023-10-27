@@ -11,7 +11,7 @@ const VCard = ()=>{
     const styles = {
         card: {
            width: '100%',
-           backgroundColor:'blue'
+           height:"100vh"
         },
     }
     
@@ -20,6 +20,7 @@ const VCard = ()=>{
         <div className="pagina">
         <ReactFlipCard
         flipTrigger={'onClick'}
+        containerStyle={styles.card}
        
         frontStyle={styles.card}
         backStyle={styles.card}
