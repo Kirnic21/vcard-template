@@ -17,10 +17,11 @@
     "react": "^18.2.0",
     "react-card-flip": "^1.2.2",
     "react-dom": "^18.2.0",
+    "react-responsive": "^9.0.2",
     "react-router-dom": "^6.16.0",
+    "react-toggle": "^4.1.3",
     "reactjs-flip-card": "^2.0.3",
-    "sass": "1.35.1" 
-    
+    "sass": "1.35.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.3",

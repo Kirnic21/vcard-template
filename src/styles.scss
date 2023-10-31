@@ -1,14 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+body{
+  --color-background:#000000;
+  --color-foreground:#fff ;
+
+}
+body.dark {
+  --color-background: #1f2023;
+  --color-foreground: #efefef;
+  
+}
+
 *{
   margin:0px;
   padding:0px;
+}
+.toggle{
+  display: flex;
+  justify-content: center;
 }
 .container {
   height: 100vh;
 }
 .metadados{
   font-size: 15px;
-  color: #BEB7A4;
+  color: var(--color-foreground);
 }
 .pagina{
   display: flex;
@@ -16,7 +31,7 @@
 }
 .descricao{
   font-size: 18px;
-  color: #BEB7A4;
+  color: var(--color-foreground);
 }
 .imagem{
   object-fit:cover;
@@ -26,6 +41,7 @@
 .titulo{
   display: flex;
   justify-content: center;
+  text-decoration: underline;
 }
 .flip-card-outer {
   width: 300px;
@@ -64,15 +80,23 @@
       &.front {
         transform: rotateY(0);
         font-size: 36px;
-        background-color: #000000;
-        color: #fff;
+        background-color:var(--color-background);
+        color: var(--color-foreground);
       }
   
       &.back {
         transform: rotateY(180deg);
-        background-color: #000000;
-        color: #2d2d2d;
+        background-color: var(--color-background);
+        color:var(--color-foreground) 
       }
     }
   }
+  
 }
+@media (prefers-color-scheme:light ) {
+  body {
+    --color-background:#dadada;
+    --color-foreground:#003459;
+    
+  }
+} 

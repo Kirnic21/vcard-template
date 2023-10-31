@@ -24,12 +24,12 @@ function FlipCard({ card }) {
       >
         <div className="card front">
           <div className="card-body d-flex justify-content-center align-items-center">
-            <p className="card-text fs-1 fw-bold"><Frente></Frente></p>
+            <div className="card-text fs-1 fw-bold"><Frente></Frente></div>
           </div>
         </div>
         <div className="card back">
           <div className="card-body d-flex justify-content-center align-items-center">
-            <p className="card-text fs-1 fw-bold"><Verso></Verso></p>
+            <div className="card-text fs-1 fw-bold"><Verso></Verso></div>
           </div>
         </div>
       </div>

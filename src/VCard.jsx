@@ -6,6 +6,7 @@ import FlipCard from "./FlipCard";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
+import { DarkModeToggle } from "./Toggle";
 const cards = [
     {
       id: "1",
@@ -36,10 +37,15 @@ const VCard = ()=>{
    
     
     return(
-        //se virado e falso, renderizar frente 
+       <div>
         <div className="pagina">
       <FlipCard card={cards[1]}></FlipCard>
+     
         </div>
+        <div className="toggle">
+         <DarkModeToggle></DarkModeToggle>
+         </div>
+         </div>
     )
 }
 export default VCard
