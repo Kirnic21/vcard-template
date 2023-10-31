@@ -1,9 +1,10 @@
 const Verso = () => {
     return (
       <div className="frente">
-        <h1 className="Categoria">Categoria:</h1>
-        <h2 className="subtitulo">URLS: </h2>
-        <h3 className = "contato">Contato: </h3>
+        <h1 className="">METADADOS</h1>
+        <p className="metadados">Categoria: </p>
+        <p className="metadados">URL:     </p>
+        <p className="metadados">Dados:      </p>
       </div>
     );
   }
