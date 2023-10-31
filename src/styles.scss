@@ -8,6 +8,7 @@
 }
 .metadados{
   font-size: 15px;
+  color: #BEB7A4;
 }
 .pagina{
   display: flex;
@@ -15,6 +16,7 @@
 }
 .descricao{
   font-size: 18px;
+  color: #BEB7A4;
 }
 .imagem{
   object-fit:cover;
@@ -68,7 +70,7 @@
   
       &.back {
         transform: rotateY(180deg);
-        background-color: #fff;
+        background-color: #000000;
         color: #2d2d2d;
       }
     }
