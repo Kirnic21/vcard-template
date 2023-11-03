@@ -46,7 +46,7 @@ body.dark {
 .flip-card-outer {
   width: 300px;
   max-width: 500px;
-  height: 400px;
+  height: 500px;
   margin: 25px 0;
 
 
@@ -116,6 +116,7 @@ body.dark {
 .frente{
   display: flex;
   flex-direction: row;
+  
   gap:15px;
 }
 .imagem{
