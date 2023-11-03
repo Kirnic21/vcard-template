@@ -2,12 +2,14 @@
 body{
   --color-background:#fff ;
   --color-foreground:  #1f2023;;
-
+  --color-background-color:#fff;
+  background-color: #fff;
 }
 body.dark {
   --color-background: #1f2023;
   --color-foreground: #efefef;
-  
+  --color-background-color:#0000;
+  background-color: black;
 }
 
 *{
@@ -28,6 +30,7 @@ body.dark {
 .pagina{
   display: flex;
   justify-content: center;
+ 
 }
 .descricao{
   font-size: 18px;
