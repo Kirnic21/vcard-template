@@ -1,6 +1,5 @@
 import React from 'react';
-import ss from './assets/ss.jpeg';
-import { DarkModeToggle } from './Toggle';
+import ss from '../../../assets/ss.jpeg';
 const Frente = () => {
   return (
     <div className="frente">

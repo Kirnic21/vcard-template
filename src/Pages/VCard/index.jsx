@@ -1,12 +1,10 @@
 import { useState } from "react"
 
-import Frente from "./Frente"
-import Verso from "./Verso"
-import FlipCard from "./FlipCard";
+import FlipCard from "../Components/FlipCard";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles.scss";
-import { DarkModeToggle } from "./Toggle";
+import "../../styles.scss";
+import { DarkModeToggle } from "../../Toggle";
 const cards = [
     {
       id: "1",
@@ -27,7 +25,7 @@ const cards = [
       back: "Back"
     }
   ];
-  
+
 const VCard = ()=>{
     //mudar states
     let [virado,setVirado] = useState(false)

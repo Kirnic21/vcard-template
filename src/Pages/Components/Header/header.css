@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif ;
+  }
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #272222;    
+}
+
+.cabecalho-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabecalho ul{
+    display: flex;
+    list-style: none;
+    color: white;
+    margin-right: 5%;
+}
+
+.cabecalho li{
+    padding: 30px;
+}
+
+
+
+.cabecalho img{
+    width: 20%;
+    margin-left: -30%;
+}
+
+.cabecalho a{
+    text-decoration: none;
+    color: white;
+}
+
+.cabecalho a:hover{
+    color:#00FFFC;
+}

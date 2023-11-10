@@ -1,12 +1,13 @@
+import React from 'react';
+import Router from './router';
 
-import { Link } from "react-router-dom";
-
-import VCard from "./VCard";
   const App = () => {
     return (
-      <>
-      <VCard></VCard>
-      </>
+
+      <div className='App'>
+        <Router />
+      </div>
+      
     );
   };
   
