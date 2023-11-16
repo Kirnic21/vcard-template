@@ -5,7 +5,7 @@ import{
     Route
 } from 'react-router-dom'
 import Cadastro from "./Pages/Cadastro"
-import VCard from "./Pages/Vcard"
+import VCard from "./Pages/VCard"
 import Login from "./Pages/Login"
 import Home from "./Pages/Home"
 import Conta from "./Pages/Conta"

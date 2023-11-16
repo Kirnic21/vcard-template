@@ -60,8 +60,11 @@ const Login = () => {
 						<p></p>
 						<button
 							type='submit'
+
 							onClick={handleSubmit}
 							disabled={loading === true || !validadorInput()}
+							className="submit"
+
 						>
 							Entrar
 						</button>

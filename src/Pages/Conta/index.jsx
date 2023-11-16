@@ -8,7 +8,7 @@ import dados from "/image/Dados.png"
 const Conta = () => {
 
     return(
-        <>
+        <div className="container">
         <Header />
 
             <div className="container-geral">
@@ -41,7 +41,7 @@ const Conta = () => {
                     </div>
             </div>
         <Footer />
-        </>
+        </div>
     )
 }
 

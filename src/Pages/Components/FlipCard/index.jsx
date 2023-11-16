@@ -33,6 +33,7 @@ function FlipCard({ card }) {
           </div>
         </div>
       </div>
+     
     </div>
   );
 }
