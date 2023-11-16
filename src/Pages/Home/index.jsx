@@ -9,7 +9,7 @@ const Home = () => {
     const [data, setData] = useState([]);
 
     const getEventos = async () => {
-        fetch("http://localhost/api_p2/index.php")
+        fetch("http://localhost/api_p2/eventos.php")
         .then((res) => res.json())
         .then((resJson) => (
           //console.log(resJson),

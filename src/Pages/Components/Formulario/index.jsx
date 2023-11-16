@@ -1,9 +1,10 @@
-const Form = () => {
+import React from "react";
 
-    
+const Formulario = () => {
+ 
   return (
     <>
-      <form onSubmit={(e) => submitForm(e)}>
+      <form>
         <div>
           <label htmlFor="nome">Nome</label>
           <input type="text" id="nome" name="nome" />
@@ -32,4 +33,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Formulario;

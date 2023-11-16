@@ -4,11 +4,12 @@ import{
     Routes,
     Route
 } from 'react-router-dom'
-import Cadastro from "./Pages/Cadastro"
+import CadastroEvento from "./Pages/CadastroEvento"
 import VCard from "./Pages/VCard"
 import Login from "./Pages/Login"
 import Home from "./Pages/Home"
 import Conta from "./Pages/Conta"
+import CadastroAdmin from "./Pages/CadastroAdmin"
 
 
 const Router = () => {
@@ -16,6 +17,7 @@ const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route
+                exact
                 path="/"
                 element={<Login/>}>
                 </Route> ~
@@ -38,9 +40,14 @@ const Router = () => {
                 />
                 
                 <Route
-                path="/cadastro"
-                element={<Cadastro/>}      
-                />         
+                path="/cadastroadm"
+                element={<CadastroAdmin/>}      
+                /> 
+
+                <Route
+                path="/cadastroevento"
+                element={<CadastroEvento />}
+                />        
             </Routes>
         </BrowserRouter>
     )
