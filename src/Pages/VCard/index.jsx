@@ -1,9 +1,11 @@
 import { useState } from "react"
 
 import FlipCard from "../Components/FlipCard";
-
+import imgwpp from "../../assets/wpp.png"
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles.scss";
+import add from "../../assets/add.png"
+import email from "../../assets/email.png"
 import { DarkModeToggle } from "../../Toggle";
 const cards = [
     {
@@ -33,9 +35,19 @@ const VCard = ()=>{
         setVirado(!virado)
     }
    
-    
+    //Lembrar:colocar a fonte da logo de email no readme
     return(
        <div>
+        <div className="botoes">
+     
+         <div className='botaoadd'>
+         <img className="wpp" src= {imgwpp}/>
+         <img className="wpp" src= {add}/>
+         <img className="wpp" src= {email}/>
+
+
+      </div>
+      </div>
         <div className="pagina">
       <FlipCard card={cards[1]}></FlipCard>
      
@@ -43,6 +55,7 @@ const VCard = ()=>{
         <div className="toggle">
          <DarkModeToggle></DarkModeToggle>
          </div>
+        
          </div>
     )
 }

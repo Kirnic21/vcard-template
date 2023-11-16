@@ -10,20 +10,28 @@
 .container-geral{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    align-items: space-between;
+    justify-content: space-around;
     padding: 5%;
+    width: 100%;
 }
 img {
-    width: 35%; 
-    height: auto; 
-    margin-left: 20px;
+    object-fit:cover;
+    width: 100%;
+    max-width: 400px;
+  
 }
-
+.img-dados{
+    display: flex;
+    justify-content: flex-end;
+}
 p, label, h3, button{
     margin-left: 20px;
 }
-
+.container{
+    display: flex;
+    justify-content: space-around;
+}
 
 
 button{

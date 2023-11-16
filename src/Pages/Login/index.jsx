@@ -33,6 +33,7 @@ const Login = () => {
 						<p></p>
 						<button
 							type='submit'
+							className="submit"
 						>
 							Entrar
 						</button>
