@@ -18,21 +18,25 @@ const Router = () => {
                 <Route
                 path="/"
                 element={<Login/>}>
-                </Route> 
+                </Route> ~
+
                 <Route
                 path="/home"
                 element={<Home/>}
                 >
                 </Route>
+
                 <Route
                 path="/conta"
                 element={<Conta/>}
                 >
+
                 </Route>
                 <Route
                 path="/vcard"
                 element={<VCard/>}
                 />
+                
                 <Route
                 path="/cadastro"
                 element={<Cadastro/>}      

@@ -1,7 +1,34 @@
-import React from "react";
+import { React, useState } from "react";
 import "../Login/login.css";
+import validarEmail  from "../../Utils/validarEmail"
+import validarSenha from "../../Utils/validarSenha"
 
 const Login = () => {
+	const [loading, setLoading] = useState()
+	const [input, setInput] = useState([])
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			setLoading(true)
+			alert('Login')
+			setLoading(false)
+		} catch (error) {
+			alert('Algo deu errado com o Login' + erro)
+		}
+	}
+
+	const handleChange = (e) => {
+		console.log('Digitando...', e.target.name, e.target.value)
+		setInput({...input, [e.target.name]: e.target.value})
+		console.log('Input', input)
+	}
+
+	const validadorInput = () => {
+		return validarEmail(input.email) && validarSenha(input.password)
+	}
+
+	//console.log("Formulario está valido?", validadorInput())
 
 
     return (
@@ -14,9 +41,9 @@ const Login = () => {
 						<input
 							placeholder='E-mail'
 							name='email'
-							autocomplete='username'
+							autoComplete='username'
 							id='email'
-							/* onChange={e => setEmail(e.target.value)} */
+							onChange={handleChange} 
 							/* value={email} */
 						/>
 						<p></p>
@@ -25,14 +52,16 @@ const Login = () => {
 							type='password'
 							name='password'
 							placeholder='*********'
-							autocomplete='current-password'
+							autoComplete='current-password'
 							id='senha'
-							/* onChange={e => setPwd(e.target.value)} */
+							onChange={handleChange} 
 							/* value={pwd} */
 						/>
 						<p></p>
 						<button
 							type='submit'
+							onClick={handleSubmit}
+							disabled={loading === true || !validadorInput()}
 						>
 							Entrar
 						</button>
