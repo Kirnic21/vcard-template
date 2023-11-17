@@ -67,7 +67,7 @@ const CadastroEvento = () => {
                 <br />
                 <input 
                 type="text"
-                placeholder="Somente LETRAS"
+                placeholder="Somente NÚMEROS"
                 name="chave_convite"
                 maxLength={10}
                 onChange={valorInput}
