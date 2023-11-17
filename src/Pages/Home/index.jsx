@@ -35,8 +35,8 @@ const Home = () => {
                 <div className="eventos-info" key={eventos.chave_convite}>
                 <h3>{eventos.nome_do_evento}</h3>
                 <div className="data">
-                    <label><b>Data e hora do evento:</b></label>
-                    <p>Início as {eventos.data_e_hora_do_evento}</p>
+                    <label><b>Data do evento:</b></label>
+                    <p>{eventos.data}</p>
                 </div>
                 <div className="info">
                     <label><b>Informações:</b></label>

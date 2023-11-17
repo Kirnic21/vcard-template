@@ -8,7 +8,7 @@ const CadastroEvento = () => {
     const [eventos, setEventos] =useState({
         chave_convite: '',
         nome_do_evento: '',
-        data_e_hora_do_evento: '',
+        data: '',
         informacoes: '',
         local: '',
         fk_organizadores_id: ''	
@@ -82,19 +82,19 @@ const CadastroEvento = () => {
                 onChange={valorInput}
                 />
                 <br />
-                <label  htmlFor="data_hora">Data e hora do evento:</label>
+                <label  htmlFor="data">Data do evento:</label>
                 <br />
                 <input 
-                type="text"
-                placeholder="ANO/MÊS/DIA 00:00:00"
-                name="data_hora"
+                type="date"
+                placeholder=""
+                name="data"
                 onChange={valorInput}
                 />
                 <br />
-                <label htmlFor="info">Informações do Evento:</label>
+                <label htmlFor="informacoes">Informações do Evento:</label>
                 <br />
                 <input 
-                name="info" 
+                name="informacoes" 
                 type="text"
                 placeholder="Digite as informações necessarias para o evento"
                 onChange={valorInput}
