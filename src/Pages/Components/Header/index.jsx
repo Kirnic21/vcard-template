@@ -10,7 +10,7 @@ const Header = () => {
             <div className="cabecalho-menu">
             <img src={Vcard}alt="Logo" />
                 <ul className="menu">
-                    <li><Link>Eventos</Link></li>
+                    <li><Link to='/home'>Eventos</Link></li>
                     <li><Link>Minha Conta</Link></li>
                 </ul>
             </div>
