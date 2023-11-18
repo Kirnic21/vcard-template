@@ -36,6 +36,9 @@ const Organizadores = () => {
         <>
         <Header />
         <h1>Organizadores</h1>
+        <Link to={'/cadastroorg'}>
+        <button>Cadastrar Organizador</button>
+        </Link>
         <hr />
         {Object.values(data).map(org => (
             <>

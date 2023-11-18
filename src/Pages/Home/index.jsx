@@ -25,8 +25,12 @@ const Home = () => {
         <>
         <Header />
 
-        <h1> EVENTOS</h1>
+        <h1>EVENTOS</h1>
 
+        <Link to={'/cadastroevento'}>
+            <button>Cadastrar Evento</button>
+        </Link>
+        
         {Object.values(data).map(eventos => (
                 <>
         <div className="eventos">

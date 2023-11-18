@@ -62,6 +62,8 @@ const VisualizarEvento = () => {
                 </button>
             </Link>
 
+            <button>Criar VCARD</button>
+
             <Footer />
         </>
     )

@@ -41,6 +41,9 @@ const VisuAdm = () => {
         <>
         <Header />
             <h1>Administradores</h1>
+            <Link to={'/cadastroadm'}>
+            <button>Cadastrar Administrador</button>
+            </Link>
             <hr />
             {status.type === 'erro'? <p>{status.mensagem}</p> : ""}
             {status.type === 'sucess'? <p>{status.mensagem}</p> : ""}

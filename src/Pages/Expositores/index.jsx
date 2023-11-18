@@ -9,6 +9,8 @@ const Expositores = () => {
         <>
         <Header />
         <h1>Expositores</h1>
+        <button>Cadastrar Expositor</button>
+        <hr />
         <Footer />
         </>
     )
