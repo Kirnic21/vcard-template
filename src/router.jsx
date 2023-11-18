@@ -12,6 +12,12 @@ import Home from "./Pages/Home"
 import Conta from "./Pages/Conta"
 import CadastroAdm from "./Pages/CadastroAdm"
 import EditarEvento from "./Pages/EditarEvento"
+import Administradores from "./Pages/Administradores"
+import EditarAdm from "./Pages/EditarAdm"
+import CadastroOrg from "./Pages/CadastroOrg"
+import Organizadores from "./Pages/Organizadores"
+import EditarOrg from "./Pages/EditarOrg"
+import Expositores from "./Pages/Expositores"
 
 
 const Router = () => {
@@ -59,7 +65,37 @@ const Router = () => {
                 <Route
                 path="/editarevento/:id"
                 element={<EditarEvento />}  
-                />   
+                />
+
+                <Route
+                path="/visualizaradms"
+                element={<Administradores />}
+                />
+
+                <Route
+                path="/editaradm/:id"
+                element={<EditarAdm />}
+                />
+
+                <Route
+                path="/cadastroorg"
+                element={<CadastroOrg/>}
+                />
+
+                <Route
+                path="/organizadores"
+                element={<Organizadores/>}
+                />
+
+                <Route
+                path="/editarorg/:id"
+                element={<EditarOrg/>}
+                />
+
+                <Route
+                path="/expositores"
+                element={<Expositores/>}
+                />
             </Routes>
         </BrowserRouter>
     )
