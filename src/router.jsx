@@ -10,7 +10,7 @@ import VCard from "./Pages/VCard"
 import Login from "./Pages/Login"
 import Home from "./Pages/Home"
 import Conta from "./Pages/Conta"
-import CadastroAdmin from "./Pages/CadastroAdmin"
+import CadastroAdm from "./Pages/CadastroAdm"
 import EditarEvento from "./Pages/EditarEvento"
 
 
@@ -43,7 +43,7 @@ const Router = () => {
                 
                 <Route
                 path="/cadastroadm"
-                element={<CadastroAdmin/>}      
+                element={<CadastroAdm/>}      
                 /> 
 
                 <Route
