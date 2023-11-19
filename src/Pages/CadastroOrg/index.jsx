@@ -110,12 +110,12 @@ const CadastroOrg = () => {
                 onChange={valorInput}
                 />
                 <br />
-                <label htmlFor="fk_adm"><b>Administrador Responsável</b></label>
+                <label htmlFor="fk_administradores_id"><b>Administrador Responsável</b></label>
                 <br />
                 <select name="fk_administradores_id" onChange={valorInput}>
                     <option value="seleciona" selected disabled >Selecione</option>
                     {Object.values(data).map(adm => ( 
-                    <option key={adm.id} value={adm.id}>{adm.nome}</option>
+                    <option key={adm.id} value={adm.id}>{adm.nome} {adm.sobrenome}</option>
                     ))}
                 </select>
                 <br />

@@ -103,7 +103,7 @@ const EditarOrg = () => {
           <input 
           type="text" 
           name="nome"
-        value={nome} 
+          value={nome} 
           onChange={e => setNome(e.target.value)}
           />
         </div>

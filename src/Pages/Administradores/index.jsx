@@ -32,7 +32,8 @@ const VisuAdm = () => {
         }).catch(() => {
             console.log("Erro: Administrador não apagado com sucesso, tente mais tarde")
         });
-        navigate('/visualizaradms')
+        window.location.reload();
+        alert('Administrador excluido com sucesso!')
     }
     useEffect(() => {
         getAdms();
@@ -45,8 +46,6 @@ const VisuAdm = () => {
             <button>Cadastrar Administrador</button>
             </Link>
             <hr />
-            {status.type === 'erro'? <p>{status.mensagem}</p> : ""}
-            {status.type === 'sucess'? <p>{status.mensagem}</p> : ""}
             {Object.values(data).map(adm => (
                 <>
             <label htmlFor="id"><b>Id:</b></label>
