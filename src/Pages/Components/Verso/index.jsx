@@ -1,10 +1,11 @@
-const Verso = () => {
+
+const Verso = (props) => {
   return (
     <div className="verso">
 
-      <p className="metadados">Categoria: </p>
-      <p className="metadados">URL: </p>
-      <p className="metadados">Dados: </p>
+      <p className="metadados">{props.categoria} </p>
+      <p className="metadados">{props.url} </p>
+      <p className="metadados">{props.dados}</p>
     </div>
   );
 };

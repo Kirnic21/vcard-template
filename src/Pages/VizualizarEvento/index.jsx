@@ -2,12 +2,31 @@ import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Link, useLocation, useParams, useNavigate } from "react-router-dom";
-
+import FlipCard from "../Components/FlipCard";
 const VisualizarEvento = () => {
     const location = useLocation();
     const id = location.state?.id;
     const navigate = useNavigate();
-
+    const cards = [
+        {
+          id: "1",
+          variant: "hover",
+          front: "Hover",
+          back: "Back"
+        },
+        {
+          id: "2",
+          variant: "click",
+          front: "Click",
+          back: "Back"
+        },
+        {
+          id: "3",
+          variant: "focus",
+          front: "Focus",
+          back: "Back"
+        }
+      ];
     const [data, setData] = useState([]);
     useEffect(() => {
         const getEvento = async () => {
@@ -32,9 +51,14 @@ const VisualizarEvento = () => {
         });
         navigate('/home')
     }
+        //dentro do flip card, os props sao:titulo, descricao, imgsrc, dados, url, categori
     return(
         <>
             <Header />
+            
+            <FlipCard card = {cards[1]}>
+
+             </FlipCard>
             <p><b>Id:</b> <br />{data.id}</p>
             <p><b>Chave Convite:</b><br />{data.chave_convite}</p>
             <p><b>Nome do evento:</b><br /> {data.nome_do_evento}</p>
