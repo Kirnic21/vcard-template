@@ -4,11 +4,14 @@ import Footer from "../Components/Footer";
 
 const CadastroOrg = () => {
 
+    const[data, setData] = useState([]);
+
     const [organizador, setOrganizador] = useState({
         nome: '',
         sobrenome: '',
         email: '',
         senha: '',
+        fk_administradores_id: ''
     });
 
     const [status, setStatus] = useState({
@@ -51,6 +54,22 @@ const CadastroOrg = () => {
             })
         })
     }
+
+    const getAdms = async () => {
+        fetch("http://localhost/api_p2/administradores.php")
+        .then((res) => res.json())
+        .then((resJson) => {
+            //console.log(resJson.records)
+            setData(resJson)
+        });
+    };
+    
+
+    useEffect(() => {
+        getAdms();
+    },[]);
+
+
     return(
         <>
             <Header />
@@ -88,8 +107,17 @@ const CadastroOrg = () => {
                 <input 
                 type="text"
                 name="senha"
-                onChange={valorInput}  
+                onChange={valorInput}
                 />
+                <br />
+                <label htmlFor="fk_adm"><b>Administrador Responsável</b></label>
+                <br />
+                <select name="fk_administradores_id" onChange={valorInput}>
+                    <option value="seleciona" selected disabled >Selecione</option>
+                    {Object.values(data).map(adm => ( 
+                    <option key={adm.id} value={adm.id}>{adm.nome}</option>
+                    ))}
+                </select>
                 <br />
                 <button>Cadastrar</button>
             </form>
