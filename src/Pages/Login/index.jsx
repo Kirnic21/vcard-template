@@ -58,6 +58,7 @@ const Login = () => {
 							/* value={pwd} */
 						/>
 						<p></p>
+					
 						<button
 							type='submit'
 
@@ -68,6 +69,7 @@ const Login = () => {
 						>
 							Entrar
 						</button>
+						
 					</div>
                     <p>Se você ainda não tem conta peça para um administrador te encaminhar o link para cadastro.</p>
 				</div>

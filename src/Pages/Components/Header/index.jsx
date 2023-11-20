@@ -10,14 +10,14 @@ const Header = () => {
             <div className="cabecalho-menu">
             <img src={Vcard}alt="Logo" />
                 <ul className="menu">
-                    <li><Link to='/home'>Eventos</Link></li>
-                    <li><Link to='/visualizaradms'>Administradores</Link></li>
-                    <li><Link to='/organizadores'>Organizadores</Link></li>
-                    <li><Link to='/expositores'>Expositores</Link></li>
+                    <li className="menu-item"><Link to='/home'>Eventos</Link></li>
+                    <li className="menu-item"><Link to='/visualizaradms'>Administradores</Link></li>
+                    <li className="menu-item"><Link to='/organizadores'>Organizadores</Link></li>
+                    <li className="menu-item"><Link to='/expositores'>Expositores</Link></li>
                 </ul>
             </div>
 
-            <ul>
+            <ul className="menu-conta">
             <li><Link to='/conta'>Minha Conta</Link></li>
             <li><Link>Sair</Link></li>
             </ul>

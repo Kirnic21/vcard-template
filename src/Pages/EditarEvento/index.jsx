@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-
+import "./style.css"
 const EditarEvento = () => {
     const navigate = useNavigate();
     
@@ -77,8 +77,9 @@ const EditarEvento = () => {
 
             {status.type === 'error'? <p>{status.mensagem}</p> : ""}
             {status.type === 'sucess'? <p>{status.mensagem}</p> : ""}
-
-            <form onSubmit={editEvento}>
+            <div className="container_form2">
+            <form className="formulario_container2" onSubmit={editEvento}>
+                <div className="formulario2">
                 <label htmlFor="chave_convite">Chave Convite</label>
                 <br />
                 <input 
@@ -90,6 +91,9 @@ const EditarEvento = () => {
                 onChange={e => setChaveConvite(e.target.value)}
                 />
                 <br />
+                
+                </div>
+                <div className="formulario2">
                 <label htmlFor="nome_do_evento">Nome do Evento:</label>
                 <br />
                 <input 
@@ -100,6 +104,8 @@ const EditarEvento = () => {
                 onChange={e => setNomeEvento(e.target.value)}
                 />
                 <br />
+                </div>
+                <div className="formulario2">
                 <label  htmlFor="data">Data do evento:</label>
                 <br />
                 <input 
@@ -110,6 +116,8 @@ const EditarEvento = () => {
                 onChange={e => setData(e.target.value)}
                 />
                 <br />
+                </div>
+                <div className="formulario2">
                 <label htmlFor="informacoes">Informações do Evento:</label>
                 <br />
                 <input 
@@ -120,6 +128,8 @@ const EditarEvento = () => {
                 onChange={e => setInfo(e.target.value)}
                 />
                 <br />
+                </div>
+                <div className="formulario2">
                 <label htmlFor="local">Local</label>
                 <br />
                 <input 
@@ -129,9 +139,11 @@ const EditarEvento = () => {
                 value={local}
                 onChange={e => setLocal(e.target.value)}
                 />
-
+                </div>
                 <button type="submit">Editar Evento</button>
+                
             </form>
+            </div>
         <Footer />
         </>
     )

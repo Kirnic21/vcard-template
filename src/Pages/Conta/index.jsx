@@ -8,10 +8,11 @@ import dados from "/image/Dados.png"
 const Conta = () => {
 
     return(
-        <div className="container">
+        <div className="containerconta">
         <Header />
 
             <div className="container-geral">
+                
                 <div className="container-form">
                     <div className="title">
                         <h3>Seus dados</h3>

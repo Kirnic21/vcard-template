@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-
+import "./styles.css"
 const CadastroExpo = () => {
     const [data, setData] = useState([]);
 
@@ -75,7 +75,7 @@ const CadastroExpo = () => {
         <hr />
         {status.type === "erro" ? <p>{status.mensagem}</p> : ""}
         {status.type === "sucess" ? <p>{status.mensagem}</p> : ""}
-        <form onSubmit={cadExp}>
+        <form className="formulario_container2" onSubmit={cadExp}>
             <label htmlFor="nome"><b>Nome:</b></label>
             <br />
             <input 

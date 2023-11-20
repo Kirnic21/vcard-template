@@ -17,6 +17,22 @@
 button{
     display: flex;
     justify-content: center;
-    margin: 12px;
+   
     padding: 0px;
+}
+.container_form2{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #848484;
+   
+}
+.formulario_container2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 20px;
+    flex-direction: column;
 }

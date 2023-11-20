@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-
+import "./style.css"
 const CadastroAdmin = () => {
     
     const [administrador, setAdministrador] = useState({
@@ -58,7 +58,7 @@ const CadastroAdmin = () => {
         <h1>Cadastrar Administrador</h1>
             {status.type === 'erro'? <p>{status.mensagem}</p> : ""}
             {status.type === 'sucess'? <p>{status.mensagem}</p> : ""}
-        <form onSubmit={cadAdm}>
+        <form className = "formulario_container2" onSubmit={cadAdm}>
         <div>
           <label htmlFor="nome">Nome</label>
           <br />

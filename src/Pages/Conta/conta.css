@@ -21,20 +21,21 @@ img {
     max-width: 400px;
   
 }
+.conatinerconta{
+
+}
 .img-dados{
     display: flex;
     justify-content: flex-end;
 }
-p, label, h3, button{
-    margin-left: 20px;
-}
+
 .container{
     display: flex;
     justify-content: space-around;
 }
 
 
-button{
+.button{
     width: 100%;
     margin-bottom: 50px;
     border-radius: 5px;

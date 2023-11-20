@@ -3,8 +3,11 @@
 *{
     margin:0;
     padding:0;
-    box-sizing: border-box;
+
     font-family: "Montserrat", sans-serif;
+  }
+  button{
+    margin-left: 0px;
   }
 h1, p{
     color: #272222;
@@ -13,14 +16,13 @@ h1, p{
 .login {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    gap:20px;
+    align-items: center;
     justify-content: center;
 
 }
 .login button{
-    width: 30%;
-    margin-left: 35%;
-    margin-bottom: 50px;
+  
     border-radius: 5px;
     border: 1px solid #00FFFC;
     background-color: #023047;
@@ -31,6 +33,20 @@ h1, p{
     background-color:#023047;
     color: #8ecae6;
     border: 1px solid;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    
+}
+.submit_container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0px;
 }
 .submit:hover{
     background-color: #023047;

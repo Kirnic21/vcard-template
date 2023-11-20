@@ -77,7 +77,7 @@ const CadastroOrg = () => {
             <hr />
             {status.type === 'erro'? <p>{status.mensagem}</p> : ""}
             {status.type === 'sucess'? <p>{status.mensagem}</p> : ""}
-            <form onSubmit={cadOrg}>  
+            <form className="formulario_container2" onSubmit={cadOrg}>  
                 <label htmlFor="nome"><b>Nome</b></label>
                 <br />
                 <input 
