@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import { Link, useLocation, useParams, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import FlipCard from "../Components/FlipCard";
 const VisualizarEvento = () => {
     const location = useLocation();
     const id = location.state?.id;
     const navigate = useNavigate();
+    
     const cards = [
         {
           id: "1",
@@ -27,18 +28,23 @@ const VisualizarEvento = () => {
           back: "Back"
         }
       ];
+
     const [data, setData] = useState([]);
+
+    const getEvento = async () => {
+        await fetch('http://localhost/api_p2/visualizarEvento.php?id=' + id)
+        .then((res) => res.json())
+        .then((resJson) => {
+            //console.log(resJson)
+            setData(resJson.evento);
+        });
+    }
+
+
+    console.log("Cards", cards)
     useEffect(() => {
-        const getEvento = async () => {
-            await fetch('http://localhost/api_p2/visualizarEvento.php?id=' + id)
-            .then((res) => res.json())
-            .then((resJson) => {
-                //console.log(resJson)
-                setData(resJson.evento);
-            });
-        }
         getEvento();
-    },[id]);
+    },[]);
 
     const apagarEvento = async (idEvento) => {
         //console.log(idEvento)
@@ -56,9 +62,7 @@ const VisualizarEvento = () => {
         <>
             <Header />
             
-            <FlipCard card = {cards[1]}>
-
-             </FlipCard>
+            <FlipCard card = {cards[1]}></FlipCard>
             <p><b>Id:</b> <br />{data.id}</p>
             <p><b>Chave Convite:</b><br />{data.chave_convite}</p>
             <p><b>Nome do evento:</b><br /> {data.nome_do_evento}</p>

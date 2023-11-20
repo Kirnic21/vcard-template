@@ -2,6 +2,8 @@ import { useState } from "react";
 import cn from "classnames";
 import Verso from "../Verso";
 import Frente from "../Frente";
+
+
 function FlipCard(props,{ card }) {
   const [showBack, setShowBack] = useState(false); 
 
