@@ -21,6 +21,8 @@ import Expositores from "./Pages/Expositores"
 import CadastroExpo from "./Pages/CadastroExpo"
 import EditarExpo from "./Pages/EditarExpo"
 import CaddastroVcard from "./Pages/CadastroVcard"
+import VisualizarVcards from "./Pages/VisualizarVcards"
+import EditarVcard from "./Pages/EditarVcard"
 
 
 const Router = () => {
@@ -113,6 +115,16 @@ const Router = () => {
                 <Route
                 path="/cadastrovcard"
                 element={<CaddastroVcard/>}
+                />
+
+                <Route
+                path="/visualizarvcards"
+                element={<VisualizarVcards/>}
+                />
+
+                <Route
+                path="/editarvcard/:id"
+                element={<EditarVcard/>}
                 />
             </Routes>
         </BrowserRouter>
