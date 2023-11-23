@@ -94,9 +94,11 @@ const VisualizarEvento = () => {
                     Voltar para a pagina inicial
                 </button>
             </Link>
-
-            <button>Criar VCARD</button>
-
+            <Link to={'/cadastrovcard'}>
+                <button>
+                    Criar VCARD
+                </button>
+            </Link>
             <Footer />
         </>
     )

@@ -20,6 +20,7 @@ import EditarOrg from "./Pages/EditarOrg"
 import Expositores from "./Pages/Expositores"
 import CadastroExpo from "./Pages/CadastroExpo"
 import EditarExpo from "./Pages/EditarExpo"
+import CaddastroVcard from "./Pages/CadastroVcard"
 
 
 const Router = () => {
@@ -107,6 +108,11 @@ const Router = () => {
                 <Route
                 path="/editarexpo/:id"
                 element={<EditarExpo/>}
+                />
+
+                <Route
+                path="/cadastrovcard"
+                element={<CaddastroVcard/>}
                 />
             </Routes>
         </BrowserRouter>
