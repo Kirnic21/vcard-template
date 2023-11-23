@@ -1,8 +1,14 @@
 import Vcard from "/image/VCARD.png"
 import "../Header/header.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Header = () => {
+    const navigate = useNavigate();
+
+    function logoutSubmit(){
+        navigate('/')
+    }
+
 
     return(
         <>
@@ -19,7 +25,7 @@ const Header = () => {
 
             <ul className="menu-conta">
             <li><Link to='/conta'>Minha Conta</Link></li>
-            <li><Link>Sair</Link></li>
+            <li onClick={logoutSubmit}><Link >Sair</Link></li>
             </ul>
         </div>
         </>

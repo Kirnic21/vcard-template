@@ -40,8 +40,6 @@ const VisualizarEvento = () => {
         });
     }
 
-
-    console.log("Cards", cards)
     useEffect(() => {
         getEvento();
     },[]);
@@ -61,8 +59,15 @@ const VisualizarEvento = () => {
     return(
         <>
             <Header />
+
+            <h3>VCards já cadastrados nesse evento</h3>
             
             <FlipCard card = {cards[1]}></FlipCard>
+
+            <hr />
+
+            <h3>Informações do Evento</h3>
+
             <p><b>Id:</b> <br />{data.id}</p>
             <p><b>Chave Convite:</b><br />{data.chave_convite}</p>
             <p><b>Nome do evento:</b><br /> {data.nome_do_evento}</p>

@@ -2,9 +2,10 @@ import { useState } from "react";
 import cn from "classnames";
 import Verso from "../Verso";
 import Frente from "../Frente";
+import fatec from'/image/fatec.png'
 
 
-function FlipCard(props,{ card }) {
+function FlipCard( card ) {
   const [showBack, setShowBack] = useState(false); 
 
   function handleClick() { 
@@ -27,17 +28,17 @@ function FlipCard(props,{ card }) {
         <div className="card front">
           <div className="card-body d-flex justify-content-center align-items-center">
             <div className="card-text fs-1 fw-bold"><Frente
-            titulo = {props.titulo}
-            descricao = {props.descricao}
-            imgsrc={props.src}></Frente></div>
+            titulo = "Curso Ciencia de dados"
+            descricao = 'Curso para tecnologia'
+            imgsrc={fatec}></Frente></div>
           </div>
         </div>
         <div className="card back">
           <div className="card-body d-flex justify-content-center align-items-center">
             <div className="card-text fs-1 fw-bold"><Verso
-            categoria = {props.categoria}
-            url={props.url}
-            dados = {props.dados}></Verso></div>
+            categoria = "Tecnologia"
+            url='xxxxxxxxxx'
+            dados = 'xxxxxxxx'></Verso></div>
           </div>
         </div>
       </div>
