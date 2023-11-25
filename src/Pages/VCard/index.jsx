@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 import FlipCard from "../Components/FlipCard";
 import imgwpp from "../../assets/wpp.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -42,9 +42,14 @@ const VCard = () => {
     <div>
       <div className="botoes">
         <div className="botaoadd">
-          <img className="wpp" src={imgwpp} />
+          <Link to="whatsapp://send?%0a%0ahttp://localhost:5173/vcard">
+            <img className="wpp" src={imgwpp} />
+          </Link>
+          
           <img className="wpp" src={add} />
-          <img className="wpp" src={email} />
+          <Link to={"mailto://send?%0a%0a&body=http://localhost:5173/vcard"}>
+            <img className="wpp" src={email} />
+          </Link>
         </div>
       </div>
       <div className="pagina">
@@ -53,6 +58,9 @@ const VCard = () => {
       <div className="toggle">
         <DarkModeToggle></DarkModeToggle>
       </div>
+      <Link to={'/cadastrovisitante'}>
+        Cadastre-se
+      </Link>
     </div>
   );
 };

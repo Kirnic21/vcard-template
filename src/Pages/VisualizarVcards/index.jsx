@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
-import fatec from "../../../public/image/fatec.png"
+import fatec from "/image/fatec.png"
 
 const VisualizarVcards = () => {
     const[data, setData] = useState([]);
@@ -35,6 +35,12 @@ const VisualizarVcards = () => {
         <>
             <Header />
             <h1>Visualizar VCards</h1>
+
+            <Link to={'/cadastrovcard'}>
+            <button>
+                Cadastrar VCARD
+            </button>
+            </Link>
             <hr />
 
                     {Object.values(data).map(cards => (
