@@ -65,7 +65,7 @@ body.dark {
 .imagem{
   display: flex;
   justify-content: center;
-  object-fit:cover;
+  object-fit:contain;
   height: 150px;
   width: 90%;
 }
