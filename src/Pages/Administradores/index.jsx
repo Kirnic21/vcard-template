@@ -3,6 +3,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { verificaLogin } from "../../Utils/utils";
 
 const VisuAdm = () => {
     const navigate = useNavigate();
@@ -36,8 +37,13 @@ const VisuAdm = () => {
         alert('Administrador excluido com sucesso!')
     }
     useEffect(() => {
-        getAdms();
-    },[]);
+        if(verificaLogin() == 1){
+            getAdms();
+        } else {
+            navigate("/")
+        }}, []);
+
+
     return(
         <>
         <Header />

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import { verificaLogin } from "../../Utils/utils";
+import { useNavigate } from "react-router-dom";
 
 const CaddastroVcard = () => {
-
+    const navigate = useNavigate();
     const[data, setData] = useState([]);
 
     const [vcard, setVcard] = useState({
@@ -67,8 +69,11 @@ const CaddastroVcard = () => {
     
 
     useEffect(() => {
-        getExpo();
-    },[]);
+        if(verificaLogin() == 2 || verificaLogin() == 3){
+            geExpo();
+        } else {
+            navigate("/")
+        }}, []);
 
     return(
         <>

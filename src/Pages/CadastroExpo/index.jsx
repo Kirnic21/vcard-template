@@ -2,17 +2,8 @@ import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "./styles.css"
-const CadastroExpo = () => {
-    const [data, setData] = useState([]);
 
-    const getEventos = async () => {
-        fetch("http://localhost/api_p2/eventos.php")
-        .then((res) => res.json())
-        .then((resJson) => (
-          //console.log(resJson),
-          setData(resJson.records)
-        ));
-    }
+const CadastroExpo = () => {
 
     const [expositor, setExpositor] = useState({
         nome: '',
@@ -65,9 +56,6 @@ const CadastroExpo = () => {
         })
     }
 
-    useEffect(() => {
-      getEventos();
-    },[])
     return(
         <>
         <Header />

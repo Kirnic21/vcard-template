@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import { verificaLogin } from "../../Utils/utils";
 
 const CadastroOrg = () => {
+    const navigate = useNavigate();
 
     const[data, setData] = useState([]);
 
@@ -64,11 +67,6 @@ const CadastroOrg = () => {
         });
     };
     
-
-    useEffect(() => {
-        getAdms();
-    },[]);
-
 
     return(
         <>

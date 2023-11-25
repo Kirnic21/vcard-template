@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "./style.css"
+import { verificaLogin } from "../../Utils/utils";
+
 const CadastroAdmin = () => {
+    const navigate = useNavigate();
     
     const [administrador, setAdministrador] = useState({
         nome: '',
@@ -51,7 +55,13 @@ const CadastroAdmin = () => {
             })
         })
     }
-
+    
+    useEffect(() => {
+        if(verificaLogin() == 1){
+            cadAdm();
+        } else {
+            navigate("/")
+        }}, []);
     return(
         <>
         <Header />

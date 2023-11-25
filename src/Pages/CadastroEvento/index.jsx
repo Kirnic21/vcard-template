@@ -1,9 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Header from "../Components/Header"
 import Footer from "../Components/Footer"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./style.css"
+import { verificaLogin } from "../../Utils/utils"
+
 const CadastroEvento = () => {
+    const navigate = useNavigate();
 
     const [eventos, setEventos] =useState({
         chave_convite: '',
@@ -55,6 +58,13 @@ const CadastroEvento = () => {
             })
         })
     }
+
+    useEffect(() => {
+        if(verificaLogin() == 2){
+            cadEvento();
+        } else {
+            navigate("/")
+        }}, []);
 
     return(
         <>

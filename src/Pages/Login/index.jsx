@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Login/login.css";
-
+import { verificaLogin } from "../../Utils/utils";
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -9,6 +9,8 @@ const Login = () => {
 	const [senha, setSenha] = useState('');
 	const [error, setError] = useState('');
 	const [msg, setMsg] = useState('');
+	const [loginAlert, setLoginAlert] = useState(false);
+	const [loginStatus, setLoginStatus] = useState('');
 
 
 	const handleInputChange= (e, type) => {
@@ -31,7 +33,11 @@ const Login = () => {
 	}
 }
 
-	const loginSubmit = () => {
+	const loginSubmit = async () => {
+
+		setLoginAlert(false);
+		setLoginStatus('');
+
 		if(email !== "" && senha != ""){
 			var url = "http://localhost/api_p2/login.php";
 			var headers = {
@@ -42,34 +48,62 @@ const Login = () => {
 				email: email,
 				senha: senha
 			};
-			fetch(url, {
+			await fetch(url, {
 				method: "POST",
 				headers: headers,
 				body: JSON.stringify(Data)
 			}).then((res) => res.json())
 			.then((resJson) => {
-				setMsg(resJson.result);
-				navigate('/home')
-			}).catch((err) => {
-				setError(err);
-				console.log(err);
+
+				if(resJson.success){
+
+					const dataExpiracao = new Date();
+					dataExpiracao.setTime(dataExpiracao.getTime() + (30 * 60 * 1000));
+					const expira = "expires=" + dataExpiracao.toUTCString();
+					document.cookie = `name=${resJson.usuario.nome} ${resJson.usuario.sobrenome}; ${expira}; path=/`;
+					document.cookie = `permission=${resJson.usuario.permissao}	; ${expira}; path=/`;
+					document.cookie = `id=${resJson.usuario.id}	; ${expira}; path=/`;
+					
+					setLoginAlert(true);
+					setLoginStatus("success")
+
+					setTimeout(() => {
+						navigate('/home')
+					}, 3000);
+
+				} else {
+
+					setLoginAlert(true);
+					setLoginStatus("error")
+				}
+
 			})
+			
+			.catch((err) => {
+				setError(err);
+				console.error(err);
+			})
+
 		}else{
 			setError("Todos os campos são obrigatórios.")
 		}
 	}
 
 	useEffect(() => {
-		setTimeout(function(){
-			setMsg("");
-		}, 5000);
-	},[msg]);
+		if(verificaLogin()){
+			navigate("/home")
+		}
+	}, [])
 
     return (
         <>
 		<div className="container">
 			<h1>Faça seu Login</h1>
 			<h5>Configure seu cartão digital</h5>
+
+					<div className="login-alert" style={{ display: loginAlert ? 'block' : 'none',  backgroundColor: loginStatus == 'error' ? '#f0d3d3' : '#b8d9ba'}}>
+						<p>{ loginStatus == 'error' ? 'Houve uma falha no login, por favor verique seus dados.' : 'Login realizado com sucesso. Você será redirecionado em alguns segundos.' }</p>
+					</div>
 					<div className="login">
 						<label htmlFor="email">Digite seu e-mail</label>
 						<input

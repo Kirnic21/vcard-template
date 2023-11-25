@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { verificaLogin } from "../../Utils/utils";
 
 
 const Expositores = () => {
+    const navigate = useNavigate();
     const[data, setData] = useState([])
 
     const getExp = async () => {
@@ -28,17 +30,16 @@ const Expositores = () => {
         window.location.reload();
         alert('Expositor excluido com sucesso!')
     }
-
     useEffect(() => {
-        getExp();
-    },[]);
+        if(verificaLogin() == 1 || verificaLogin() == 2){
+            getExp();
+        } else {
+            navigate("/")
+        }}, []);
     return (
         <>
         <Header />
         <h1>Expositores</h1>
-        <Link to={'/cadastroexpositor'}>
-            <button>Cadastrar Expositor</button>
-        </Link>
         <hr />
         {Object.values(data).map(exp => (
             <>

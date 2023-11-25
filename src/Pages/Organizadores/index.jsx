@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Link, useNavigate } from "react-router-dom";
+import { verificaLogin } from "../../Utils/utils";
 
 const Organizadores = () => {
     const navigate = useNavigate();
@@ -29,8 +30,11 @@ const Organizadores = () => {
         navigate('/home')
     } 
     useEffect(() => {
-        getOrgs();
-    },[]);
+        if(verificaLogin() == 1){
+            getOrgs();
+        } else {
+            navigate("/")
+        }}, []);
 
     return(
         <>
