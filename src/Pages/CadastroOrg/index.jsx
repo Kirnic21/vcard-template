@@ -66,6 +66,10 @@ const CadastroOrg = () => {
             setData(resJson)
         });
     };
+
+    useEffect(() => {
+        getAdms();
+    },[])
     
 
     return(

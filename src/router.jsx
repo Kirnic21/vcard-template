@@ -19,6 +19,8 @@ import EditarExpo from "./Pages/EditarExpo";
 import CaddastroVcard from "./Pages/CadastroVcard";
 import VisualizarVcards from "./Pages/VisualizarVcards";
 import EditarVcard from "./Pages/EditarVcard";
+import CadastroVisitante from "./Pages/CadastroVisitante";
+import EditarConta from "./Pages/EditarConta";
 
 const Router = () => {
 
@@ -44,6 +46,8 @@ const Router = () => {
         <Route path="/cadastrovcard" element={<CaddastroVcard />} />
         <Route path="/visualizarvcards" element={<VisualizarVcards />} />
         <Route path="/editarvcard/:id" element={<EditarVcard />} />
+        <Route path="/cadastrovisitante" element={<CadastroVisitante />} />
+        <Route path="/editarconta/:id" element={<EditarConta />} />
       </Routes>
     </BrowserRouter>
   );

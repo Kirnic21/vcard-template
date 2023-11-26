@@ -87,10 +87,6 @@ const EditarExpo = () => {
         }
     }
 
-    useEffect(() => {
-        //console.log('location.state?.id', location.state?.id); 
-    },[]);
-
     const getEventos = async () => {
         fetch("http://localhost/api_p2/eventos.php")
         .then((res) => res.json())

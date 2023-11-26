@@ -39,8 +39,18 @@ const Header = () => {
             </div>
 
             <ul className="menu-conta">
+            {verificaLogin() != null && (
+                <>
             <li><Link to={'/conta/' + userId} state={{ id: userId }}>Minha Conta</Link></li>
             <li onClick={logoutSubmit}><Link >Sair</Link></li>
+                </>
+            )}
+                       {verificaLogin() == null && (
+                <>
+            <li><Link to={'/cadastrovisitante'}>Cadastrar-se</Link></li>
+            <li><Link to={'/'}>Login</Link></li>
+                </>
+            )}
             </ul>
         </div>
         </>

@@ -7,6 +7,7 @@ import "../../styles.scss";
 import add from "../../assets/add.png";
 import email from "../../assets/email.png";
 import { DarkModeToggle } from "../../Toggle";
+import { verificaLogin } from "../../Utils/utils";
 
 
 const cards = [
@@ -58,9 +59,17 @@ const VCard = () => {
       <div className="toggle">
         <DarkModeToggle></DarkModeToggle>
       </div>
+      {(verificaLogin() == null) && (
       <Link to={'/cadastrovisitante'}>
         Cadastre-se
       </Link>
+      )}
+
+      {(verificaLogin() == 4) && (
+      <Link to={'/home'}>
+        Ver todos eventos
+      </Link>
+      )}
     </div>
   );
 };

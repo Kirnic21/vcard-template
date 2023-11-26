@@ -21,11 +21,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (!verificaLogin()) {
-      navigate("/");
-    } else {
         getEventos();
-    }    
   }, []);
 
 

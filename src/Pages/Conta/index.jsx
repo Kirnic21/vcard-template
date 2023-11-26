@@ -5,10 +5,12 @@ import React, { useEffect, useState } from "react"
 import dados from "/image/Dados.png"
 import { verificaLogin } from "../../Utils/utils"
 import { verificaId } from "../../Utils/Id"
+import { Link, useNavigate } from "react-router-dom"
 
 
 
 const Conta = () => {
+    const navigate = useNavigate('');
     const [data, setData] = useState('');
 
     const  userId = verificaId();
@@ -21,10 +23,15 @@ const Conta = () => {
             setData(resJson.user);
           });
       };
-useEffect(() => {
-    getUser();
-    verificaId();
-},[])
+
+      useEffect(() => {
+        if(verificaLogin() == null){
+            navigate("/")
+        } else {
+            getUser();
+            verificaLogin();
+            verificaId();
+        }}, []);
 
 
     return(
@@ -96,10 +103,20 @@ useEffect(() => {
                             </Link>
                         </>
                     )}
-
-                    <button type="submit" className="">
-                        Alterar seus dados
-                    </button>
+                    {verificaLogin() == 3 && (
+                        <>
+                            <Link to={'/vcard'}>
+                                <button>
+                                    Visualizar VCARD
+                                </button>
+                            </Link>
+                        </>
+                    )}
+                    <Link to={'/editarconta/' + userId} state={{ id: userId}}>
+                        <button className="">
+                            Alterar seus dados
+                        </button>
+                    </Link>
                 </div>
             <div className="img-dados">
                 <img src={dados} alt="proteção de dados" />

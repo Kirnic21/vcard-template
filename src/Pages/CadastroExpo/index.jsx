@@ -4,7 +4,7 @@ import Footer from "../Components/Footer";
 import "./styles.css"
 
 const CadastroExpo = () => {
-
+    const[data, setData] = useState([]);
     const [expositor, setExpositor] = useState({
         nome: '',
         e_mail: '',

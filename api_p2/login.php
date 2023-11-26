@@ -10,7 +10,7 @@ header("Access-Control-Allow-Methods: GET,POST");
 $host = "localhost";
 $user = "root";
 $pass = "";
-$dbname = "vcard";
+$dbname = "vcarduser";
 $port = "3306";
 
 $conexao = new mysqli($host, $user, $pass, $dbname, $port);
@@ -27,24 +27,26 @@ $senha = isset($dados['senha']) ? $dados['senha'] : "";
 
 if ($email != "" && $senha != "") {
 
-    $query_login = "SELECT 'administradores' as tipo, email, senha FROM administradores WHERE email ='$email' AND senha = '$senha'
-    UNION
-    SELECT 'organizadores' as tipo, email, senha FROM organizadores WHERE email ='$email' AND senha = '$senha'
-    UNION
-    SELECT 'expositores' as tipo, email, senha FROM expositores WHERE email ='$email' AND senha = '$senha'
-    UNION
-    SELECT 'visitantes' as tipo, email, senha FROM visitantes WHERE email ='$email' AND senha = '$senha'
-";
+    $query_login = "SELECT id, nome, sobrenome, email, senha, permissao FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+    
     $res = mysqli_query($conexao, $query_login);
 
     if ($res && mysqli_num_rows($res) > 0){
+
+        $row = $res->fetch_assoc();
+        unset($row['senha']);
         $result = "Login realizado com sucesso.";
+        $success = true;
+
     } else {
         $result = "Email ou senha incorretos.";
+        $success = false;
+        $row = false;
     }
 } else {
     $result = "Por favor, forneça um email e uma senha.";
+    $success = false;
 }
 
-$response = array("result" => $result);
+$response = array("result" => $result, "usuario" => $row, "success" => $success);
 echo json_encode($response);
