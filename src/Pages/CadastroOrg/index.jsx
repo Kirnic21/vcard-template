@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import { verificaLogin } from "../../Utils/Utils";
 
 const CadastroOrg = () => {
     const navigate = useNavigate();
@@ -15,6 +14,7 @@ const CadastroOrg = () => {
         email: '',
         senha: '',
         contato: '',
+        data:'',
         permissao: ''
     });
 
@@ -50,7 +50,7 @@ const CadastroOrg = () => {
                     type:'sucess',
                     mensagem: resJson.messagem
                 })
-            }
+            }navigate('/')
         }).catch(() => {
             setStatus({
                 type:'erro',
@@ -98,14 +98,30 @@ const CadastroOrg = () => {
                 <label htmlFor="senha"><b>Senha</b></label>
                 <br />
                 <input 
-                type="text"
+                type="password"
                 name="senha"
                 onChange={valorInput}
                 />
                 <br />
-                <label htmlFor="fk_administradores_id"><b>Administrador Responsável</b></label>
+                <label htmlFor="contato">Data</label>
                 <br />
-                <select name="fk_administradores_id" onChange={valorInput}>
+                <input 
+                type="date"
+                name="data"
+                onChange={valorInput}
+                />
+                <br />
+                <label htmlFor="contat">Contato</label>
+                <br />
+                <input 
+                type="text"
+                name="contato"
+                onChange={valorInput}
+                />
+                <br />
+                <label htmlFor="permissao"><b>Administrador Responsável</b></label>
+                <br />
+                <select name="permissao" onChange={valorInput}>
                     <option value="seleciona" selected disabled >Selecione organizador...</option>
                     <option value={2}>Organizador</option>
                 </select>

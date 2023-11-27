@@ -3,11 +3,13 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import "./style.css"
+
 const EditarEvento = () => {
     const navigate = useNavigate();
     
     const location = useLocation();
     const id = location.state?.id;
+
     const [chave_convite, setChaveConvite] = useState('');
     const [nome_do_evento, setNomeEvento] = useState('');
     const [data, setData] = useState('');
@@ -59,7 +61,7 @@ const EditarEvento = () => {
             await fetch('http://localhost/api_p2/visualizarEvento.php?id=' + id)
             .then((res) => res.json())
             .then((resJson) => {
-                //console.log(resJson)
+                console.log(resJson)
                 setChaveConvite(resJson.evento.chave_convite);
                 setNomeEvento(resJson.evento.nome_do_evento);
                 setData(resJson.evento.data);

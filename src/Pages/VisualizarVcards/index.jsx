@@ -51,17 +51,6 @@ const VisualizarVcards = () => {
       back: "Back",
     },
   ];
-  let teste1 = {titulo:"titulo",descricao:"preciptadamente eu amo amor eu te amo"}
-  let teste133 = {titulo:"titulo",descricao:"preciptadamente eu amo amor eu te amo"}
-  let teste1423 = {titulo:"titulo",descricao:"preciptadamente eu amo amor eu te amo"}
-  let teste12 = {titulo:"titulo",descricao:"porcaria meu"}
-  let teste13 = {titulo:"titulo",descricao:"porcaria meu"}
-const teste = [
-teste1,teste12,teste13,teste133,teste1423
-]
-let b = teste.map(vcard =>{
-  return <FlipCard card={cards[1]} titulo={vcard.titulo} descricao = {vcard.descricao}></FlipCard>
-})
   useEffect(() => {
     getVcards();
   }, []);``
@@ -79,9 +68,9 @@ let b = teste.map(vcard =>{
       )}
       <hr />
       <div className="vcards">
-        {b}
-      </div>
-      
+      {Object.values(data).map(vcard => (
+        <>
+      <FlipCard card={cards[1]} titulo = {vcard.titulo} descricao = {vcard.descritivo} categoria = {vcard.categoria} url = {vcard.urls} dados = {vcard.data}></FlipCard>
           {(verificaLogin() == 1 || verificaLogin() == 3) && (
             <>
               <Link to={"/editarvcard/" + cards.id} state={{ id: cards.id }}>
@@ -95,6 +84,9 @@ let b = teste.map(vcard =>{
               </Link>
             </>
           )}
+          </>
+      ))}
+      </div>
           <hr />
     
       
