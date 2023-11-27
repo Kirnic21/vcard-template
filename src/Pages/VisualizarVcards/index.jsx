@@ -3,7 +3,9 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import fatec from "/image/fatec.png";
-import { verificaLogin } from "../../Utils/utils";
+import "./style.css"
+import { verificaLogin } from "../../Utils/Utils";
+import FlipCard from "../Components/FlipCard";
 
 const VisualizarVcards = () => {
   const [data, setData] = useState([]);
@@ -29,10 +31,40 @@ const VisualizarVcards = () => {
       });
     navigate("/visualizarvcards");
   };
-
+  const cards = [
+    {
+      id: "1",
+      variant: "hover",
+      front: "Hover",
+      back: "Back",
+    },
+    {
+      id: "2",
+      variant: "click",
+      front: "Click",
+      back: "Back",
+    },
+    {
+      id: "3",
+      variant: "focus",
+      front: "Focus",
+      back: "Back",
+    },
+  ];
+  let teste1 = {titulo:"titulo",descricao:"preciptadamente eu amo amor eu te amo"}
+  let teste133 = {titulo:"titulo",descricao:"preciptadamente eu amo amor eu te amo"}
+  let teste1423 = {titulo:"titulo",descricao:"preciptadamente eu amo amor eu te amo"}
+  let teste12 = {titulo:"titulo",descricao:"porcaria meu"}
+  let teste13 = {titulo:"titulo",descricao:"porcaria meu"}
+const teste = [
+teste1,teste12,teste13,teste133,teste1423
+]
+let b = teste.map(vcard =>{
+  return <FlipCard card={cards[1]} titulo={vcard.titulo} descricao = {vcard.descricao}></FlipCard>
+})
   useEffect(() => {
     getVcards();
-  }, []);
+  }, []);``
   return (
     <>
       <Header />
@@ -46,53 +78,10 @@ const VisualizarVcards = () => {
         </Link>
       )}
       <hr />
-
-      {Object.values(data).map((cards) => (
-        <>
-          <img src={fatec} alt="fatec" />
-          <p>
-            <b>Id:</b> <br />
-            {cards.id}
-          </p>
-          <p>
-            <b>Titulo do VCard:</b>
-            <br />
-            {cards.titulo}
-          </p>
-          <p>
-            <b>Descritivo</b>
-            <br /> {cards.descritivo}
-          </p>
-          <p>
-            <b>Categoria</b>
-            <br /> {cards.categoria}
-          </p>
-          <p>
-            <b>Links das Midias sociais:</b>
-            <br />
-            {cards.urls}
-          </p>
-          <p>
-            <b>Data da exposição</b>
-            <br />
-            {cards.data}
-          </p>
-          <p>
-            <b>Registros</b>
-            <br />
-            {cards.registros}
-          </p>
-          <p>
-            <b>Visualizações</b>
-            <br />
-            {cards.visualizacoes}
-          </p>
-          <p>
-            <b>Expositor responsável:</b>
-            <br />
-            {cards.fk_expositores_id}
-          </p>
-
+      <div className="vcards">
+        {b}
+      </div>
+      
           {(verificaLogin() == 1 || verificaLogin() == 3) && (
             <>
               <Link to={"/editarvcard/" + cards.id} state={{ id: cards.id }}>
@@ -107,8 +96,8 @@ const VisualizarVcards = () => {
             </>
           )}
           <hr />
-        </>
-      ))}
+    
+      
       <Link to="/home">
         <button>Voltar para a pagina inicial</button>
       </Link>

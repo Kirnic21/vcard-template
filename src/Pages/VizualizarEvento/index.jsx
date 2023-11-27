@@ -3,7 +3,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import FlipCard from "../Components/FlipCard";
-import { verificaLogin } from "../../Utils/utils";
+import { verificaLogin } from "../../Utils/Utils";
 
 
 const VisualizarEvento = () => {

@@ -3,7 +3,7 @@ import Header from "../Components/Header"
 import Footer from "../Components/Footer"
 import { Link, useNavigate } from "react-router-dom"
 import "./style.css"
-import { verificaLogin } from "../../Utils/utils"
+import { verificaLogin } from "../../Utils/Utils"
 
 const CadastroEvento = () => {
     const navigate = useNavigate();
