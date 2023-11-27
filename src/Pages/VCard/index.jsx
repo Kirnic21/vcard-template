@@ -7,7 +7,7 @@ import "../../styles.scss";
 import add from "../../assets/add.png";
 import email from "../../assets/email.png";
 import { DarkModeToggle } from "../../Toggle";
-import { verificaLogin } from "../../Utils/utils";
+import { verificaLogin } from "../../Utils/Utils";
 
 
 const cards = [

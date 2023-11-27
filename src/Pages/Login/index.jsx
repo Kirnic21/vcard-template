@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Login/login.css";
-import { verificaLogin } from "../../Utils/utils";
+import { verificaLogin } from "../../Utils/Utils";
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -14,6 +14,7 @@ const Login = () => {
 
 
 	const handleInputChange= (e, type) => {
+		console.log(e.target.value)
 		switch(type){
 			case "email":
 				setError("");
@@ -39,12 +40,12 @@ const Login = () => {
 		setLoginStatus('');
 
 		if(email !== "" && senha != ""){
-			var url = "http://localhost/api_p2/login.php";
-			var headers = {
+			let url = "http://localhost/api_p2/login.php";
+			let headers = {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
 			};
-			var Data = {
+			let Data = {
 				email: email,
 				senha: senha
 			};

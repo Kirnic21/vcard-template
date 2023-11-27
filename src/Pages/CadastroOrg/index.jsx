@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import { verificaLogin } from "../../Utils/utils";
+import { verificaLogin } from "../../Utils/Utils";
 
 const CadastroOrg = () => {
     const navigate = useNavigate();

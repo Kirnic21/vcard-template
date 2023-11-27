@@ -3,7 +3,7 @@ import Footer from "../Components/Footer"
 import "./conta.css"
 import React, { useEffect, useState } from "react"
 import dados from "/image/Dados.png"
-import { verificaLogin } from "../../Utils/utils"
+import { verificaLogin } from "../../Utils/Utils"
 import { verificaId } from "../../Utils/Id"
 import { Link, useNavigate } from "react-router-dom"
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import { verificaLogin } from "../../Utils/utils";
+import { verificaLogin } from "../../Utils/Utils";
 import { useNavigate } from "react-router-dom";
 
 const CaddastroVcard = () => {

@@ -4,7 +4,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "./home.css";
 import fatec from "/image/fatec.png";
-import { verificaLogin } from "../../Utils/utils";
+import { verificaLogin } from "../../Utils/Utils";
 
 const Home = () => {
   const [data, setData] = useState([]);
