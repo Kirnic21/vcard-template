@@ -8,35 +8,38 @@ import { verificaLogin } from "../../Utils/utils";
 const CadastroAdmin = () => {
     const navigate = useNavigate();
     
-    const [administrador, setAdministrador] = useState({
+    const [usuarios, setUsuarios] = useState({
         nome: '',
         sobrenome: '',
         email: '',
-        senha: ''
-    });
+        senha: '',
+        contato: '',
+        data:'',
+        permissao: ''
+        });
 
     const [status, setStatus] = useState({
         type: '',
         mensagem: ''
     })
 
-    const valorInput = (e) => setAdministrador({
-            ...administrador, [e.target.name]: e.target.value
-        })
+    const valorInput = (e) => setUsuarios({
+        ...usuarios, [e.target.name]: e.target.value
+    })
 
     const cadAdm = async (e) => {
         e.preventDefault();
-        //console.log(adm.nome)
         await fetch("http://localhost/api_p2/cadastroAdm.php", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({administrador})
+            body: JSON.stringify({usuarios})
         })
         .then((res) => res.json())
         .then((resJson) => {
-            //console.log(resJson)
+            console.log(resJson)
+            navigate("/home")
             if(resJson.erro){
                 setStatus({
                     type:'erro',
@@ -51,7 +54,7 @@ const CadastroAdmin = () => {
         }).catch(() => {
             setStatus({
                 type:'erro',
-                mensagem: 'Administrador não cadastro com sucesso, tente mais tarde'
+                mensagem: 'Usuário não cadastro com sucesso, tente mais tarde'
             })
         })
     }
@@ -97,13 +100,41 @@ const CadastroAdmin = () => {
         />
         </div>
         <div>
-          <label htmlFor="number">Senha</label>
+          <label htmlFor="senha">Senha</label>
           <br />
           <input 
-          type="semha"  
+          type="password"  
           name="senha"
           onChange={valorInput}
           />
+        </div>
+        <div>
+          <label htmlFor="contato">Contato</label>
+          <br />
+          <input 
+          type="number"  
+          name="contato"
+          onChange={valorInput}
+          />
+          <br />
+          <label htmlFor="data">Data</label>
+          <br />
+          <input 
+          type="date"  
+          name="data"
+          onChange={valorInput}
+          />
+          <br />
+          <label htmlFor="permissao">Administrador</label>
+          <br />
+        <select 
+          type="hidden"  
+          name="permissao"
+          onChange={valorInput}
+          >
+            <option value={0} selected disabled>Selecione "ADMINISTRADOR"</option>
+            <option value="1">Administrador</option>
+            </select> 
         </div>
         <br />
         <button>Cadastrar</button>

@@ -48,17 +48,22 @@ const Usuarios = () => {
         <br />
         <p>{user.contato}</p>
         <br />
-
+        {user.permissao == 3 && (
+            <>
         <label><b>Tema exposto:</b></label>
         <br />
         <p>{user.expo}</p>
         <br />
-
+        </>
+        )}
+        {user.permissao == 4 && (
+        <>
         <label><b>Interesses:</b></label>
         <br />
         <p>{user.interesses}</p>
         <br />
-
+        </>
+        )}
         <label><b>Data de cadastro:</b></label>
         <br />
         <p>{user.data}</p>

@@ -2,17 +2,20 @@ import React, { useState, useEffect } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "./styles.css"
+import { useNavigate } from "react-router-dom";
 
 const CadastroExpo = () => {
+    const navigate = useNavigate();
     const[data, setData] = useState([]);
-    const [expositor, setExpositor] = useState({
+    const [usuarios, setUsuarios] = useState({
         nome: '',
-        e_mail: '',
+        sobrenome: '',
+        email: '',
         senha: '',
-        tema: '',
         contato: '',
+        expo: '',
         data: '',
-        fk_evento_id: ''
+        permissao: ''
     });
 
     const [status, setStatus] = useState({
@@ -20,8 +23,8 @@ const CadastroExpo = () => {
         mensagem: ''
     })
 
-    const valorInput = (e) => setExpositor({
-            ...expositor, [e.target.name]: e.target.value
+    const valorInput = (e) => setUsuarios({
+            ...usuarios, [e.target.name]: e.target.value
         })
 
     const cadExp = async (e) => {
@@ -32,7 +35,7 @@ const CadastroExpo = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({expositor})
+            body: JSON.stringify({usuarios})
         })
         .then((res) => res.json())
         .then((resJson) => {
@@ -42,12 +45,13 @@ const CadastroExpo = () => {
                     type:'erro',
                     mensagem: resJson.messagem
                 });
-            }else{
+            }
+            else{
                 setStatus({
                     type:'sucess',
                     mensagem: resJson.messagem
                 })
-            }
+            }navigate('/')
         }).catch(() => {
             setStatus({
                 type:'erro',
@@ -72,14 +76,25 @@ const CadastroExpo = () => {
             onChange={valorInput}
             />
             <br />
-            <label htmlFor="e_mail"><b>E-mail:</b></label>
+            <label htmlFor="nome"><b>Sobrenome:</b></label>
             <br />
             <input 
             type="text"
-            name="e_mail"
+            name="sobrenome"
             onChange={valorInput}
             />
             <br />
+
+            <label htmlFor="email"><b>E-mail:</b></label>
+            <br />
+            <input 
+            type="text"
+            name="email"
+            onChange={valorInput}
+            />
+
+            <br />
+
             <label htmlFor="senha"><b>Senha:</b></label>
             <br />
             <input 
@@ -87,15 +102,9 @@ const CadastroExpo = () => {
             name="senha"
             onChange={valorInput}
             />
+
             <br />
-            <label htmlFor="tema"><b>Assunto à expor:</b></label>
-            <br />
-            <input 
-            type="text"
-            name="tema"
-            onChange={valorInput}
-            />
-            <br />
+
             <label htmlFor="contato"><b>Contato:</b></label>
             <br />
             <input 
@@ -104,6 +113,18 @@ const CadastroExpo = () => {
             maxLength={12}
             onChange={valorInput}
             />
+
+            <br />
+
+            <label htmlFor="expo"><b>Assunto à expor:</b></label>
+
+            <br />
+            <input 
+            type="text"
+            name="expo"
+            onChange={valorInput}
+            />
+
             <br />
             <label htmlFor="data"><b>Data da exposição:</b></label>
             <br />
@@ -112,14 +133,14 @@ const CadastroExpo = () => {
             name="data"
             onChange={valorInput}
             />
+
             <br />
-            <label htmlFor="nome"><b>Evento da exposição:</b></label>
+
+            <label htmlFor="permissao"><b>Evento da exposição:</b></label>
             <br />
-            <select name="fk_evento_id" onChange={valorInput}>
-                <option value="Selecione">Selecione o evento...</option>
-                {Object.values(data).map(evento => (
-                    <option value={evento.id} key={evento.id}>{evento.nome_do_evento}</option>
-                ))}
+            <select name="permissao" onChange={valorInput}>
+                <option value="Selecione" disabled selected>Selecione o expositor...</option>
+                    <option value={3}>Expositor</option>
             </select>
             <br />
             <button type="submit">Cadastrar</button>

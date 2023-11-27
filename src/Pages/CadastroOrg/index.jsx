@@ -9,12 +9,13 @@ const CadastroOrg = () => {
 
     const[data, setData] = useState([]);
 
-    const [organizador, setOrganizador] = useState({
+    const [usuarios, setUsuarios] = useState({
         nome: '',
         sobrenome: '',
         email: '',
         senha: '',
-        fk_administradores_id: ''
+        contato: '',
+        permissao: ''
     });
 
     const [status, setStatus] = useState({
@@ -22,8 +23,8 @@ const CadastroOrg = () => {
         mensagem: ''
     })
 
-    const valorInput = (e) => setOrganizador({
-            ...organizador, [e.target.name]: e.target.value
+    const valorInput = (e) => setUsuarios({
+            ...usuarios, [e.target.name]: e.target.value
         })
 
     const cadOrg = async (e) => {
@@ -34,7 +35,7 @@ const CadastroOrg = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({organizador})
+            body: JSON.stringify({usuarios})
         })
         .then((res) => res.json())
         .then((resJson) => {
@@ -58,17 +59,7 @@ const CadastroOrg = () => {
         })
     }
 
-    const getAdms = async () => {
-        fetch("http://localhost/api_p2/administradores.php")
-        .then((res) => res.json())
-        .then((resJson) => {
-            //console.log(resJson.records)
-            setData(resJson)
-        });
-    };
-
     useEffect(() => {
-        getAdms();
     },[])
     
 
@@ -115,10 +106,8 @@ const CadastroOrg = () => {
                 <label htmlFor="fk_administradores_id"><b>Administrador Responsável</b></label>
                 <br />
                 <select name="fk_administradores_id" onChange={valorInput}>
-                    <option value="seleciona" selected disabled >Selecione</option>
-                    {Object.values(data).map(adm => ( 
-                    <option key={adm.id} value={adm.id}>{adm.nome} {adm.sobrenome}</option>
-                    ))}
+                    <option value="seleciona" selected disabled >Selecione organizador...</option>
+                    <option value={2}>Organizador</option>
                 </select>
                 <br />
                 <button>Cadastrar</button>

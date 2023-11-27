@@ -14,7 +14,7 @@ const CadastroEvento = () => {
         data: '',
         informacoes: '',
         local: '',
-        fk_organizadores_id: ''	
+        fk_usuarios_id: ''	
     });
 
     const [status, setStatus] = useState({
@@ -48,9 +48,10 @@ const CadastroEvento = () => {
             }else{
                 setStatus({
                     type:'sucess',
-                    mensagem: resJson.messagem
+                    mensagem: resJson.messagem,
+                    
                 })
-            }
+            }navigate('/home')
         }).catch(() => {
             setStatus({
                 type:'erro',
@@ -59,9 +60,20 @@ const CadastroEvento = () => {
         })
     }
 
+    const[data, setData] = useState([]);
+    const getUsers = async () => {
+        fetch("http://localhost/api_p2/users.php")
+        .then((res) => res.json())
+        .then((resJson) => {
+            console.log(resJson)
+            setData(resJson)
+        });
+    };
+
     useEffect(() => {
         if(verificaLogin() == 2){
             cadEvento();
+            getUsers();
         } else {
             navigate("/")
         }}, []);
@@ -130,6 +142,22 @@ const CadastroEvento = () => {
                 name="local"
                 onChange={valorInput}
                 />
+
+                <br />
+                <label htmlFor="">Selecione o organizador:</label>
+                <select 
+                name="fk_usuarios_id"
+                onChange={valorInput}
+                >
+                    <option value="0" disabled selected>Selecione o organizador:</option>
+                    {Object.values(data).map(user => (
+                        <>
+                        {user.permissao == 2 && (
+                            <option value={user.id}>{user.nome} {user.sobrenome}</option>
+                        )}
+                        </>
+                    ))}
+                </select>
                 
                 </div>
                 <div className="submit_container">
