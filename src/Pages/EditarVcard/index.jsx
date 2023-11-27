@@ -118,12 +118,20 @@ const EditarVcard = () => {
                     <br />
                     <label htmlFor="categoria">Categoria</label>
                     <br />
-                    <input 
-                    type="text"  
+                    <select  
                     name="categoria"
                     onChange={e => setCategoria(e.target.value)}
-                    value={categoria} 
-                    />
+                    value={categoria}
+                    >
+                        <option value="categoria" selected disabled>Selecione a categoria do seu vcard</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Conhecimentos gerais">Conhecimentos Gerais</option>
+                        <option value="Atualidades">Atualidades</option>
+                        <option value="Politica">Politica</option>
+                        <option value="Institucional">Institucional</option>
+                        <option value="Tecnologia">Tecnologia</option>
+
+                    </select>
                     <br />
                     <label htmlFor="urls">Link das Midias sociais/Conteudos:</label>
                     <br />

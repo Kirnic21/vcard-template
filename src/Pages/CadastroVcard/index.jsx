@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const CaddastroVcard = () => {
     const navigate = useNavigate();
     const[data, setData] = useState([]);
+    const[evento, setEvento] = useState([]);
 
     const [vcard, setVcard] = useState({
         titulo: '',
@@ -14,7 +15,8 @@ const CaddastroVcard = () => {
         categoria: '',
         urls: '',
         data: '',
-        fk_expositores_id: ''
+        fk_usuarios_id: '',
+        fk_evento_id: ''
     });
 
     const [status, setStatus] = useState({
@@ -58,11 +60,20 @@ const CaddastroVcard = () => {
         })
     }
 
-    const getExpo = async () => {
-        fetch("http://localhost/api_p2/expositores.php")
+    const getEventos = async () => {
+        fetch("http://localhost/api_p2/eventos.php")
+          .then((res) => res.json())
+          .then((resJson) =>
+            //console.log(resJson.records)
+            setEvento(resJson.records)
+          );
+      };    
+
+    const getUser = async () => {
+        fetch("http://localhost/api_p2/users.php")
         .then((res) => res.json())
         .then((resJson) => {
-            //console.log(resJson.records)
+            //console.log(resJson)
             setData(resJson)
         });
     };
@@ -70,7 +81,8 @@ const CaddastroVcard = () => {
 
     useEffect(() => {
         if(verificaLogin() == 2 || verificaLogin() == 3){
-            geExpo();
+            getUser();
+            getEventos();
         } else {
             navigate("/")
         }}, []);
@@ -101,11 +113,20 @@ const CaddastroVcard = () => {
                     <br />
                     <label htmlFor="categoria">Categoria</label>
                     <br />
-                    <input 
+                    <select 
                     type="text"  
                     name="categoria"
                     onChange={valorInput}
-                    />
+                    >
+                        <option value="categoria" selected disabled>Selecione a categoria do seu vcard</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Conhecimentos gerais">Conhecimentos Gerais</option>
+                        <option value="Atualidades">Atualidades</option>
+                        <option value="Politica">Politica</option>
+                        <option value="Institucional">Institucional</option>
+                        <option value="Tecnologia">Tecnologia</option>
+
+                    </select>
                     <br />
                     <label htmlFor="urls">Link das Midias sociais/Conteudos:</label>
                     <br />
@@ -123,14 +144,32 @@ const CaddastroVcard = () => {
                     onChange={valorInput}
                     />
                     <br />
-                    <label htmlFor="fk_expositores_id">Expositor:</label>
+                    <label htmlFor="fk_usuarios_id">Expositor:</label>
                     <br />
                     <select 
-                    name="fk_expositores_id" 
+                    name="fk_usuarios_id" 
                     onChange={valorInput}
                     >
+                        <option value="selecione" selected disabled>Selecione seu nome</option>
                         {Object.values(data).map(exp => (
-                        <option value={exp.id}>{exp.nome}</option>
+                            <>
+                            {exp.permissao == 3 && (
+                        <option value={exp.id}>{exp.nome} {exp.sobrenome}</option>
+                            )}
+                            </>
+                        ))}
+                    </select>
+                    <br />
+
+                    <label htmlFor="fk_evento_id">Evento:</label>
+                    <br />
+                    <select 
+                    name="fk_evento_id" 
+                    onChange={valorInput}
+                    >   
+                        <option value="selecione" selected disabled>Selecione o evento da exposição</option>
+                        {Object.values(evento).map(exp => (
+                        <option value={exp.id}>{exp.nome_do_evento} {exp.nome}</option>
                         ))}
                     </select>
                     <br />

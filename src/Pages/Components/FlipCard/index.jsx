@@ -28,17 +28,17 @@ function FlipCard( props ) {
         <div className="card front">
           <div className="card-body d-flex justify-content-center align-items-center">
             <div className="card-text fs-1 fw-bold"><Frente
-            titulo = "Curso Ciencia de dados"
-            descricao = 'Curso para tecnologia'
+            titulo = {props.titulo}
+            descricao = {props.descricao}
             imgsrc={fatec}></Frente></div>
           </div>
         </div>
         <div className="card back">
           <div className="card-body d-flex justify-content-center align-items-center">
             <div className="card-text fs-1 fw-bold"><Verso
-            categoria = "Tecnologia"
-            url='xxxxxxxxxx'
-            dados = 'xxxxxxxx'></Verso></div>
+            categoria = {props.catogoria}
+            url= {props.url}
+            dados = {props.data}></Verso></div>
           </div>
         </div>
       </div>

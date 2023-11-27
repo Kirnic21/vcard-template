@@ -4,11 +4,15 @@ import Footer from "../Components/Footer";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import FlipCard from "../Components/FlipCard";
 import { verificaLogin } from "../../Utils/utils";
+
+
 const VisualizarEvento = () => {
   const location = useLocation();
   const id = location.state?.id;
   const navigate = useNavigate();
-
+  const [dataCards, setDataCards] = useState([]);
+  const [data, setData] = useState([]);
+  
   const cards = [
     {
       id: "1",
@@ -30,7 +34,6 @@ const VisualizarEvento = () => {
     },
   ];
 
-  const [data, setData] = useState([]);
 
   const getEvento = async () => {
     await fetch("http://localhost/api_p2/visualizarEvento.php?id=" + id)
@@ -41,8 +44,19 @@ const VisualizarEvento = () => {
       });
   };
 
+
+  const getVcards = async () => {
+    fetch("http://localhost/api_p2/vcards.php")
+      .then((res) => res.json())
+      .then((resJson) => {
+        //console.log(resJson)
+        setDataCards(resJson);
+      });
+  };
+
   useEffect(() => {
     getEvento();
+    getVcards();
   }, []);
 
   const apagarEvento = async (idEvento) => {
@@ -63,8 +77,13 @@ const VisualizarEvento = () => {
       <Header />
 
       <h3>VCards já cadastrados nesse evento</h3>
-
-      <FlipCard card={cards[1]}></FlipCard>
+      {Object.values(dataCards).map((Vcards) => (
+        <>
+        {Vcards.fk_evento_id == data.id && (
+      <FlipCard card={cards[1]} titulo = {[Vcards.titulo]} descricao = {Vcards.descritivo} dados = {Vcards.data} url = {Vcards.urls} categoria= {Vcards.categoria}></FlipCard>
+        )}
+      </>
+      ))}
 
       <hr />
 

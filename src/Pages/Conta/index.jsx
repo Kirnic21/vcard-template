@@ -15,6 +15,12 @@ const Conta = () => {
 
     const  userId = verificaId();
 
+    function logoutSubmit(){
+        document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "permission=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
+
     const getUser = async () => {
         await fetch("http://localhost/api_p2/usuarios.php?id=" + userId)
           .then((res) => res.json())
@@ -22,6 +28,19 @@ const Conta = () => {
             console.log(resJson)
             setData(resJson.user);
           });
+      };
+      const apagarEvento = async (idUsuario) => {
+        //console.log(idEvento)
+        await fetch("http://localhost/api_p2/apagarUsuario.php?id=" + idUsuario)
+          .then((res) => res.json())
+          .then((resJson) => {
+            console.log(resJson);
+            logoutSubmit();
+          })
+          .catch(() => {
+            console.log("Erro: Evento não apagado com sucesso, tente mais tarde");
+          });
+        navigate("/home");
       };
 
       useEffect(() => {
@@ -115,6 +134,12 @@ const Conta = () => {
                     <Link to={'/editarconta/' + userId} state={{ id: userId}}>
                         <button className="">
                             Alterar seus dados
+                        </button>
+                    </Link>
+
+                    <Link state={{ id: userId }}>
+                        <button onClick={() => apagarEvento(data.id)} >
+                            Excluir Conta
                         </button>
                     </Link>
                 </div>
