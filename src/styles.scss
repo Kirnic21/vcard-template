@@ -50,6 +50,7 @@ body.dark {
   display: flex;
   justify-content: center;
   color: var(--color-foreground);
+  word-break: break-all;
 }
 .pagina{
   display: flex;

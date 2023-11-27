@@ -54,6 +54,7 @@ const VisualizarVcards = () => {
   useEffect(() => {
     getVcards();
   }, []);``
+  
   return (
     <>
       <Header />
@@ -70,9 +71,11 @@ const VisualizarVcards = () => {
       <div className="vcards">
       {Object.values(data).map(vcard => (
         <>
+        < div lassName="vcards2">
       <FlipCard card={cards[1]} titulo = {vcard.titulo} descricao = {vcard.descritivo} categoria = {vcard.categoria} url = {vcard.urls} dados = {vcard.data}></FlipCard>
           {(verificaLogin() == 1 || verificaLogin() == 3) && (
             <>
+            <div className="botoesdovcard">
               <Link to={"/editarvcard/" + cards.id} state={{ id: cards.id }}>
                 <button>Editar VCard</button>
               </Link>
@@ -82,8 +85,11 @@ const VisualizarVcards = () => {
                   Excluir VCard
                 </button>
               </Link>
+              </div>
             </>
+            
           )}
+          </div>
           </>
       ))}
       </div>

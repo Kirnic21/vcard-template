@@ -38,7 +38,7 @@ function FlipCard( props ) {
             <div className="card-text fs-1 fw-bold"><Verso
             categoria = {props.catogoria}
             url= {props.url}
-            dados = {props.data}></Verso></div>
+            dados = {props.dados}></Verso></div>
           </div>
         </div>
       </div>
