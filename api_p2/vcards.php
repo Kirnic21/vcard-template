@@ -8,9 +8,9 @@ header("Access-Control-Allow-Headers: *");
 //header("Acess-Control-Allow-Methods: GET,PUT,POST,DELETE");
 
 // Incluindo a conexao
-include_once 'conexao.php';
+include_once 'conexao2.php';
 
-$query_vcard = "SELECT id, titulo, descritivo, categoria, urls, link_vcard, data, registros, visualizacoes, fk_expositores_id FROM vcard ORDER BY id DESC";
+$query_vcard = "SELECT id, titulo, descritivo, categoria, urls, link_vcard, data, registros, visualizacoes, fk_usuarios_id, fk_evento_id FROM vcard ORDER BY id DESC";
 $result_vcard = $conexao -> prepare($query_vcard);
 $result_vcard -> execute();
 
@@ -31,7 +31,8 @@ if(($result_vcard) AND ($result_vcard -> rowCount()!= 0)){
             'data' => $data,
             'registros' => $registros,
             'visualizacoes' => $visualizacoes,
-            'fk_expositores_id' => $fk_expositores_id
+            'fk_usuarios_id' => $fk_usuarios_id,
+            'fk_evento_id' => $fk_evento_id
         ];
 
         array_push($arrvcard, $lista_vcards);

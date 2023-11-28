@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: *");
 //header("Acess-Control-Allow-Methods: GET,PUT,POST,DELETE");
 
 // Incluindo a conexao
-include_once 'conexao.php';
+include_once 'conexao2.php';
 
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 

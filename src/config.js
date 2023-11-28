@@ -1,0 +1,1 @@
+export const rotaApi = 'http://177.47.251.192/';

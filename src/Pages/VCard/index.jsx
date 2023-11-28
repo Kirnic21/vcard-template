@@ -8,6 +8,7 @@ import add from "../../assets/add.png";
 import email from "../../assets/email.png";
 import { DarkModeToggle } from "../../Toggle";
 import { verificaLogin } from "../../Utils/Utils";
+import { rotaApi } from "../../config";
 
 
 const cards = [
@@ -37,7 +38,7 @@ const VCard = () => {
   const id = location.state?.id;
 
   const getVcards = async () => {
-    await fetch("http://localhost/api_p2/visualizarVcard.php?id=" + id)
+    await fetch(rotaApi + "api_p2/visualizarVcard.php?id=" + id)
       .then((res) => res.json())
       .then((resJson) => {
         //console.log(resJson)

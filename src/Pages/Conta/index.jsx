@@ -25,7 +25,7 @@ const Conta = () => {
         await fetch("http://localhost/api_p2/usuarios.php?id=" + userId)
           .then((res) => res.json())
           .then((resJson) => {
-            console.log(resJson)
+            //console.log(resJson)
             setData(resJson.user);
           });
       };
@@ -34,7 +34,7 @@ const Conta = () => {
         await fetch("http://localhost/api_p2/apagarUsuario.php?id=" + idUsuario)
           .then((res) => res.json())
           .then((resJson) => {
-            console.log(resJson);
+            //console.log(resJson);
             logoutSubmit();
           })
           .catch(() => {

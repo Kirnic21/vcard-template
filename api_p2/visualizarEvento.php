@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Headers: *");
 // Incluindo a conexao
-include_once 'conexao.php';
+include_once 'conexao2.php';
 
 //$id= 3;
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);

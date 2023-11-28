@@ -6,19 +6,22 @@ import fatec from "/image/fatec.png";
 import "./style.css"
 import { verificaLogin } from "../../Utils/Utils";
 import FlipCard from "../Components/FlipCard";
-import QRCode from "qrcode.react";
+import QRCode from "react-qr-code";
+import { rotaApi } from "../../config";
+
 
 const VisualizarVcards = () => {
   const [data, setData] = useState([]);
 
+
   const gerarQRCode = (id) => {
-    const GoogleChartAPI = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
-    const url = 'http://localhost:5173/editarvcard/' ;
-    const conteudoQRCode = GoogleChartAPI + url + id;
-    return conteudoQRCode;
+    const url = rotaApi + 'vcard/' + id;
+    console.log("url", url)
+    return(url);
   }
+
   const getVcards = async () => {
-    fetch("http://localhost/api_p2/vcards.php")
+    fetch(rotaApi + "api_p2/vcards.php")
       .then((res) => res.json())
       .then((resJson) => {
         //console.log(resJson)
@@ -28,7 +31,7 @@ const VisualizarVcards = () => {
 
   const apagarVcard = async (idVcard) => {
     //console.log(idEvento)
-    await fetch("http://localhost/api_p2/apagarVcard.php?id=" + idVcard)
+    await fetch(rotaApi + "api_p2/apagarVcard.php?id=" + idVcard)
       .then((res) => res.json())
       .then((resJson) => {
         //console.log(resJson);
@@ -58,6 +61,7 @@ const VisualizarVcards = () => {
       back: "Back",
     },
   ];
+  
   useEffect(() => {
     getVcards();
     gerarQRCode();
@@ -79,7 +83,7 @@ const VisualizarVcards = () => {
       <div className="vcards">
       {Object.values(data).map(vcard => (
         <>
-        < div className="vcards2">
+        < div className="vcards2" key={vcard.id}>
       <FlipCard card={cards[1]} titulo = {vcard.titulo} descricao = {vcard.descritivo} categoria = {vcard.categoria} url = {vcard.urls} dados = {vcard.data}></FlipCard>
           {(verificaLogin() == 1 || verificaLogin() == 3) && (
             <>
@@ -98,9 +102,9 @@ const VisualizarVcards = () => {
               </Link>
               </div>
             </>
-          )}
+            )}
+            <QRCode value={gerarQRCode(vcard.id)}/>
           </div>
-          <QRCode value={gerarQRCode(vcard.id)}/>
           </>
       ))}
       </div>

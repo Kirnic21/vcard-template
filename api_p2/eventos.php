@@ -6,7 +6,7 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 // Incluindo a conexao
-include_once 'conexao.php';
+include_once 'conexao2.php';
 
  $query_eventos = "SELECT id, chave_convite, nome_do_evento, data, informacoes, local FROM evento ORDER BY id DESC";
  $result_eventos = $conexao -> prepare($query_eventos);

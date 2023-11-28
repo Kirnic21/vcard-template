@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: *");
 header("Acess-Control-Allow-Methods: GET,PUT,POST,DELETE");
 
 // Incluindo a conexao
-include_once 'conexao.php';
+include_once 'conexao2.php';
 
 $response_json = file_get_contents("php://input");
 $dados = json_decode($response_json, true);
