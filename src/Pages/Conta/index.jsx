@@ -103,6 +103,7 @@ const Conta = () => {
                         <>
                         <label htmlFor="cad_org"><b>Link para cadastro de organizador:</b></label>
                         <p>http://localhost:5173/cadastroorg</p>
+
                         <label htmlFor="cad_org"><b>Link para cadastro de administrador:</b></label>
                         <p>http://localhost:5173/cadastroadm</p>
                         </>
@@ -138,7 +139,7 @@ const Conta = () => {
                             Alterar seus dados
                         </button>
                     </Link>
-
+                    <br />
                     <Link state={{ id: userId }}>
                         <button onClick={() => apagarEvento(data.id)} >
                             Excluir Conta

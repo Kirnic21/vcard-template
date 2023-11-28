@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import FlipCard from "../Components/FlipCard";
 import imgwpp from "../../assets/wpp.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -32,14 +32,30 @@ const cards = [
 ];
 
 const VCard = () => {
+  const [data, setData] = useState([]);
+  const location = useLocation();
+  const id = location.state?.id;
+
+  const getVcards = async () => {
+    await fetch("http://localhost/api_p2/visualizarVcard.php?id=" + id)
+      .then((res) => res.json())
+      .then((resJson) => {
+        //console.log(resJson)
+        setData(resJson.vcard);
+      });
+  };
   //mudar states
   let [virado, setVirado] = useState(false);
   const trocar = () => {
     setVirado(!virado);
   };
 
+  useEffect(() => {
+    getVcards()
+  }, [])
   //Lembrar:colocar a fonte da logo de email no readme
   return (
+      <>
     <div>
       <div className="botoes">
         <div className="botaoadd">
@@ -54,7 +70,9 @@ const VCard = () => {
         </div>
       </div>
       <div className="pagina">
-        <FlipCard card={cards[1]}></FlipCard>
+        <>
+        <FlipCard card={cards[1]} titulo = {data.titulo} descricao = {data.descritivo} categoria = {data.categoria} url = {data.urls} dados = {data.data}></FlipCard>
+        </>
       </div>
       <div className="toggle">
         <DarkModeToggle></DarkModeToggle>
@@ -71,6 +89,7 @@ const VCard = () => {
       </Link>
       )}
     </div>
+    </>
   );
 };
 export default VCard;

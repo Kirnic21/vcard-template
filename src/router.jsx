@@ -25,7 +25,7 @@ const Router = () => {
         <Route exact path="/" element={<Login />}></Route> ~
         <Route path="/home" element={<Home />}></Route>
         <Route path="/conta/:id" element={<Conta />}></Route>
-        <Route path="/vcard" element={<VCard />} />
+        <Route path="/vcard/:id" element={<VCard />} />
         <Route path="/cadastroadm" element={<CadastroAdm />} />
         <Route path="/cadastroevento" element={<CadastroEvento />} />
         <Route path="/visualizarevento/:id" element={<VisualizarEvento />} />

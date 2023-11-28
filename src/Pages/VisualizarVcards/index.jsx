@@ -6,10 +6,17 @@ import fatec from "/image/fatec.png";
 import "./style.css"
 import { verificaLogin } from "../../Utils/Utils";
 import FlipCard from "../Components/FlipCard";
+import QRCode from "qrcode.react";
 
 const VisualizarVcards = () => {
   const [data, setData] = useState([]);
 
+  const gerarQRCode = (id) => {
+    const GoogleChartAPI = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
+    const url = 'http://localhost:5173/editarvcard/' ;
+    const conteudoQRCode = GoogleChartAPI + url + id;
+    return conteudoQRCode;
+  }
   const getVcards = async () => {
     fetch("http://localhost/api_p2/vcards.php")
       .then((res) => res.json())
@@ -24,7 +31,7 @@ const VisualizarVcards = () => {
     await fetch("http://localhost/api_p2/apagarVcard.php?id=" + idVcard)
       .then((res) => res.json())
       .then((resJson) => {
-        console.log(resJson);
+        //console.log(resJson);
       })
       .catch(() => {
         console.log("Erro: Vcard não apagado com sucesso, tente mais tarde");
@@ -53,7 +60,8 @@ const VisualizarVcards = () => {
   ];
   useEffect(() => {
     getVcards();
-  }, []);``
+    gerarQRCode();
+  }, []);
   
   return (
     <>
@@ -71,25 +79,28 @@ const VisualizarVcards = () => {
       <div className="vcards">
       {Object.values(data).map(vcard => (
         <>
-        < div lassName="vcards2">
+        < div className="vcards2">
       <FlipCard card={cards[1]} titulo = {vcard.titulo} descricao = {vcard.descritivo} categoria = {vcard.categoria} url = {vcard.urls} dados = {vcard.data}></FlipCard>
           {(verificaLogin() == 1 || verificaLogin() == 3) && (
             <>
             <div className="botoesdovcard">
-              <Link to={"/editarvcard/" + cards.id} state={{ id: cards.id }}>
+              <Link to={"/editarvcard/" + vcard.id} state={{ id: vcard.id }}>
                 <button>Editar VCard</button>
               </Link>
 
-              <Link state={{ id: cards.id }}>
-                <button onClick={() => apagarVcard(cards.id)}>
+              <Link state={{ id: vcard.id }}>
+                <button onClick={() => apagarVcard(vcard.id)}>
                   Excluir VCard
                 </button>
               </Link>
+              <Link to={'/vcard/' + vcard.id} state={{ id: vcard.id }}>
+                <button>Visualizar</button>
+              </Link>
               </div>
             </>
-            
           )}
           </div>
+          <QRCode value={gerarQRCode(vcard.id)}/>
           </>
       ))}
       </div>
