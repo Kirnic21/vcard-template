@@ -98,7 +98,7 @@ const VisualizarVcards = () => {
                 </button>
               </Link>
               <Link to={'/vcard/' + vcard.id} state={{ id: vcard.id }}>
-                <button>Visualizar</button>
+                <button>Visualizar VV</button>
               </Link>
               </div>
             </>
