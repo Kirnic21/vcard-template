@@ -1,1 +1,1 @@
-export const rotaApi = 'https://192.168.56.1/';
+export const rotaApi = 'http://192.168.56.1/';
