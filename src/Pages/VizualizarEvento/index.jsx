@@ -72,11 +72,14 @@ const VisualizarEvento = () => {
     navigate("/home");
   };
   //dentro do flip card, os props sao:titulo, descricao, imgsrc, dados, url, 
-  
+  let a = {titulo:"ds"}
+  let a2 = {titulo:"ds"}
+  let b = [a,a2]
+  Object.values(dataCards)
   return (
     <>
       <Header />
-
+   
       <h3>VCards já cadastrados nesse evento</h3>
       <div className="visualizareventos">
       {Object.values(dataCards).map((Vcards) => (
