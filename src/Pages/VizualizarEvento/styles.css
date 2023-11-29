@@ -40,3 +40,22 @@ button{
     display: flex;
     justify-content: center;
 }
+.vcardseventos{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px
+}
+.infoevento{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.botoesevento{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.homevoltar{
+    display: flex;
+    justify-content: center;
+}

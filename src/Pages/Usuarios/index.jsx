@@ -3,7 +3,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { verificaLogin } from "../../Utils/Utils";
 import { useNavigate } from "react-router-dom";
-
+import "./styles.css"
 const Usuarios = () => {
     const[data, setData] = useState([]);
     const navigate = useNavigate();
@@ -24,9 +24,12 @@ const Usuarios = () => {
         }}, []);
     return(
         <>
+        
         <Header />
+
         <h1>Usuários</h1>
         <hr />
+        <div className = "usuarios">
         {Object.values(data).map(user => (
             <>
         <label><b>Nome:</b></label>
@@ -103,6 +106,7 @@ const Usuarios = () => {
         <hr />
         </>
         ))}
+        </div>
         <Footer/>
         </>
     )

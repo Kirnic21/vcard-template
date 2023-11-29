@@ -67,7 +67,8 @@ const CadastroExpo = () => {
         <hr />
         {status.type === "erro" ? <p>{status.mensagem}</p> : ""}
         {status.type === "sucess" ? <p>{status.mensagem}</p> : ""}
-        <form className="formulario_container2" onSubmit={cadExp}>
+        <div className="formulario3232">
+        <form className="formulario_container3" onSubmit={cadExp}>
             <label htmlFor="nome"><b>Nome:</b></label>
             <br />
             <input 
@@ -145,6 +146,7 @@ const CadastroExpo = () => {
             <br />
             <button type="submit">Cadastrar</button>
         </form>
+        </div>
         <Footer />
         </>
     )

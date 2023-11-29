@@ -1,0 +1,8 @@
+.formulario_container3{
+    flex-direction: column;
+    display: flex;
+   align-items: center;
+    background-color: #F0EFEF;
+    gap:3px;
+    padding: 40px;
+}

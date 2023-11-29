@@ -9,7 +9,7 @@ import FlipCard from "../Components/FlipCard";
 import QRCode from "react-qr-code";
 
 
-const VisualizarVcards = () => {a
+const VisualizarVcards = () => {
   const [data, setData] = useState([]);
 
 
@@ -65,7 +65,8 @@ const VisualizarVcards = () => {a
     getVcards();
     gerarQRCode();
   }, []);
-  
+
+
   return (
     <>
       <Header />
@@ -102,7 +103,9 @@ const VisualizarVcards = () => {a
               </div>
             </>
             )}
+            <div className="qrcode">
             <QRCode value={gerarQRCode(vcard.id)}/>
+            </div>
           </div>
           </>
       ))}

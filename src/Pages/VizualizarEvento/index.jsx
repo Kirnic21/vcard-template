@@ -4,7 +4,7 @@ import Footer from "../Components/Footer";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import FlipCard from "../Components/FlipCard";
 import { verificaLogin } from "../../Utils/Utils";
-
+import "./styles.css"
 
 const VisualizarEvento = () => {
   const location = useLocation();
@@ -71,12 +71,14 @@ const VisualizarEvento = () => {
       });
     navigate("/home");
   };
-  //dentro do flip card, os props sao:titulo, descricao, imgsrc, dados, url, categori
+  //dentro do flip card, os props sao:titulo, descricao, imgsrc, dados, url, 
+  
   return (
     <>
       <Header />
 
       <h3>VCards já cadastrados nesse evento</h3>
+      <div className="visualizareventos">
       {Object.values(dataCards).map((Vcards) => (
         <>
         {Vcards.fk_evento_id == data.id && (
@@ -84,9 +86,9 @@ const VisualizarEvento = () => {
         )}
       </>
       ))}
-
+</div>
       <hr />
-
+        <div className="infoevento">
       <h3>Informações do Evento</h3>
 
       <p>
@@ -114,7 +116,8 @@ const VisualizarEvento = () => {
         <b>Local do evento:</b>
         <br /> {data.local}
       </p>
-
+      </div>
+      <div className="botoesevento">
       {(verificaLogin() == 1 || verificaLogin() == 2) && (
           <>
             <Link to={"/editarevento/" + data.id} state={{ id: data.id }}>
@@ -128,14 +131,15 @@ const VisualizarEvento = () => {
             </Link>
           </>
         )}
-
-      <Link to="/home">
+      </div>
+      <Link className="homevoltar" to="/home">
         <button>Voltar para a pagina inicial</button>
       </Link>
       {(verificaLogin() == 2 || verificaLogin() == 3) && (
       <Link to={"/cadastrovcard"}>
         <button>Criar VCARD</button>
       </Link>
+      
       )}
       <Footer />
     </>
