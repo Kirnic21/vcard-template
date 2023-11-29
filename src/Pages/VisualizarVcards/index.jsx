@@ -7,21 +7,20 @@ import "./style.css"
 import { verificaLogin } from "../../Utils/Utils";
 import FlipCard from "../Components/FlipCard";
 import QRCode from "react-qr-code";
-import { rotaApi } from "../../config";
 
 
-const VisualizarVcards = () => {
+const VisualizarVcards = () => {a
   const [data, setData] = useState([]);
 
 
   const gerarQRCode = (id) => {
-    const url = rotaApi + 'vcard/' + id;
+    const url = 'http://localhost:5173/vcard/' + id;
     console.log("url", url)
     return(url);
   }
 
   const getVcards = async () => {
-    fetch(rotaApi + "api_p2/vcards.php")
+    fetch("http://localhost:5173/api_p2/vcards.php")
       .then((res) => res.json())
       .then((resJson) => {
         //console.log(resJson)
@@ -31,7 +30,7 @@ const VisualizarVcards = () => {
 
   const apagarVcard = async (idVcard) => {
     //console.log(idEvento)
-    await fetch(rotaApi + "api_p2/apagarVcard.php?id=" + idVcard)
+    await fetch("http://localhost:5173/api_p2/apagarVcard.php?id=" + idVcard)
       .then((res) => res.json())
       .then((resJson) => {
         //console.log(resJson);

@@ -60,11 +60,8 @@ const CadastroAdmin = () => {
     }
     
     useEffect(() => {
-        if(verificaLogin() == 1){
             cadAdm();
-        } else {
-            navigate("/")
-        }}, []);
+        },[]);
     return(
         <>
         <Header />
