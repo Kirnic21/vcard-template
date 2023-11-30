@@ -68,8 +68,9 @@ const CadastroAdmin = () => {
         <h1>Cadastrar Administrador</h1>
             {status.type === 'erro'? <p>{status.mensagem}</p> : ""}
             {status.type === 'sucess'? <p>{status.mensagem}</p> : ""}
-        <form className = "formulario_container2" onSubmit={cadAdm}>
-        <div>
+        <form className = "formulario_container3" onSubmit={cadAdm}>
+        <div className="formcont4">
+        <div className="formulario4">
           <label htmlFor="nome">Nome</label>
           <br />
           <input 
@@ -78,7 +79,7 @@ const CadastroAdmin = () => {
           onChange={valorInput}
           />
         </div>
-        <div>
+        <div className="formulario4">
           <label htmlFor="sobrenome">Sobrenome</label>
           <br />
           <input 
@@ -87,7 +88,7 @@ const CadastroAdmin = () => {
           onChange={valorInput}
           />
         </div>
-        <div>
+        <div className="formulario4">
           <label htmlFor="email">E-mail</label>
           <br />
           <input
@@ -96,7 +97,7 @@ const CadastroAdmin = () => {
           onChange={valorInput}
         />
         </div>
-        <div>
+        <div className="formulario4">
           <label htmlFor="senha">Senha</label>
           <br />
           <input 
@@ -105,7 +106,7 @@ const CadastroAdmin = () => {
           onChange={valorInput}
           />
         </div>
-        <div>
+        <div className="formulario4">
           <label htmlFor="contato">Contato</label>
           <br />
           <input 
@@ -132,6 +133,7 @@ const CadastroAdmin = () => {
             <option value={0} selected disabled>Selecione "ADMINISTRADOR"</option>
             <option value="1">Administrador</option>
             </select> 
+        </div>
         </div>
         <br />
         <button>Cadastrar</button>
