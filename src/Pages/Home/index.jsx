@@ -24,7 +24,6 @@ const Home = () => {
         getEventos();
   }, []);
 
-
   return (
     <>
       <Header />
@@ -39,7 +38,7 @@ const Home = () => {
         <>
           <div className="eventos">
             <div className="eventos-img">
-              <img src={fatec} alt="imagem evento" />
+              <img className="fatecimage" src={fatec} alt="imagem evento" />
             </div>
             <div className="eventos-info" key={eventos.id}>
               <h3>{eventos.nome_do_evento}</h3>
