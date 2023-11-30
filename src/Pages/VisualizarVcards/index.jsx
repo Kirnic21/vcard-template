@@ -14,23 +14,23 @@ const VisualizarVcards = () => {
 
 
   const gerarQRCode = (id) => {
-    const url = 'http://localhost:5173/vcard/' + id;
+    const url = 'http://localhost/vcard/' + id;
     console.log("url", url)
     return(url);
   }
 
   const getVcards = async () => {
-    fetch("http://localhost:5173/api_p2/vcards.php")
+    fetch("http://localhost/api_p2/vcards.php")
       .then((res) => res.json())
       .then((resJson) => {
-        //console.log(resJson)
+        console.log(resJson)
         setData(resJson);
       });
   };
 
   const apagarVcard = async (idVcard) => {
     //console.log(idEvento)
-    await fetch("http://localhost:5173/api_p2/apagarVcard.php?id=" + idVcard)
+    await fetch("http://localhost/api_p2/apagarVcard.php?id=" + idVcard)
       .then((res) => res.json())
       .then((resJson) => {
         //console.log(resJson);

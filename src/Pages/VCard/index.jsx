@@ -37,7 +37,7 @@ const VCard = () => {
   const id = location.state?.id;
 
   const getVcards = async () => {
-    await fetch("http://localhost:5173/api_p2/visualizarVcard.php?id=" + id)
+    await fetch("http://localhost/api_p2/visualizarVcard.php?id=" + id)
       .then((res) => res.json())
       .then((resJson) => {
         //console.log(resJson)

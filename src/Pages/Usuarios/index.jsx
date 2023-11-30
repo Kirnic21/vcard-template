@@ -103,7 +103,7 @@ const Usuarios = () => {
         <br />
         </>
         )}
-        <hr />
+
         </>
         ))}
         </div>
